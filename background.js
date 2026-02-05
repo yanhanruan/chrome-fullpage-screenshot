@@ -91,11 +91,16 @@ chrome.action.onClicked.addListener((tab) => {
                 () => {
                   if (chrome.runtime.lastError) {
                     console.error('截图错误:', chrome.runtime.lastError);
+                    chrome.debugger.detach({ tabId: tab.id });
                   } else {
+                    // 下载图片
                     downloadImage(screenshotResult.data, tab.title);
+                    
+                    // 复制到剪贴板
+                    copyToClipboard(tab.id, screenshotResult.data);
+                    
+                    chrome.debugger.detach({ tabId: tab.id });
                   }
-                  
-                  chrome.debugger.detach({ tabId: tab.id });
                 }
               );
             }
@@ -124,4 +129,59 @@ function downloadImage(base64Data, title = "screenshot") {
 
 function sanitizeFileName(name) {
   return name.replace(/[\\/:*?"<>|]/g, "_");
+}
+
+// 通过注入脚本复制到剪贴板
+function copyToClipboard(tabId, base64Data) {
+  const copyScript = `
+    (async function() {
+      try {
+        const base64Data = '${base64Data}';
+        const response = await fetch('data:image/png;base64,' + base64Data);
+        const blob = await response.blob();
+        
+        await navigator.clipboard.write([
+          new ClipboardItem({
+            'image/png': blob
+          })
+        ]);
+        
+        console.log('✓ 图片已复制到剪贴板');
+        return { success: true };
+      } catch (error) {
+        console.error('✗ 复制失败:', error);
+        return { success: false, error: error.message };
+      }
+    })();
+  `;
+
+  chrome.scripting.executeScript({
+    target: { tabId: tabId },
+    func: copyImageToClipboard,
+    args: [base64Data]
+  }).then((results) => {
+    if (results && results[0] && results[0].result) {
+      console.log('剪贴板操作结果:', results[0].result);
+    }
+  }).catch((error) => {
+    console.error('注入脚本失败:', error);
+  });
+}
+
+// 这个函数会被注入到页面中执行
+async function copyImageToClipboard(base64Data) {
+  try {
+    const response = await fetch('data:image/png;base64,' + base64Data);
+    const blob = await response.blob();
+    
+    await navigator.clipboard.write([
+      new ClipboardItem({
+        'image/png': blob
+      })
+    ]);
+    
+    return { success: true, message: '图片已复制到剪贴板' };
+  } catch (error) {
+    return { success: false, error: error.message };
+  }
 }
