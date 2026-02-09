@@ -133,27 +133,6 @@ function sanitizeFileName(name) {
 
 // 通过注入脚本复制到剪贴板
 function copyToClipboard(tabId, base64Data) {
-  const copyScript = `
-    (async function() {
-      try {
-        const base64Data = '${base64Data}';
-        const response = await fetch('data:image/png;base64,' + base64Data);
-        const blob = await response.blob();
-        
-        await navigator.clipboard.write([
-          new ClipboardItem({
-            'image/png': blob
-          })
-        ]);
-        
-        console.log('✓ 图片已复制到剪贴板');
-        return { success: true };
-      } catch (error) {
-        console.error('✗ 复制失败:', error);
-        return { success: false, error: error.message };
-      }
-    })();
-  `;
 
   chrome.scripting.executeScript({
     target: { tabId: tabId },
