@@ -30,7 +30,13 @@ chrome.action.onClicked.addListener((tab) => {
         
         const html = document.documentElement;
         return {
-          width: html.clientWidth,
+          width: Math.max(
+            document.body.scrollWidth,
+            document.body.offsetWidth,
+            html.clientWidth,
+            html.scrollWidth,
+            html.offsetWidth
+          ),
           height: Math.max(
             document.body.scrollHeight,
             document.body.offsetHeight,
@@ -83,7 +89,7 @@ chrome.action.onClicked.addListener((tab) => {
                   if (style) style.remove();
                 })();
               `;
-              
+
               chrome.debugger.sendCommand(
                 { tabId: tab.id },
                 "Runtime.evaluate",
@@ -95,10 +101,10 @@ chrome.action.onClicked.addListener((tab) => {
                   } else {
                     // 下载图片
                     downloadImage(screenshotResult.data, tab.title);
-                    
+
                     // 复制到剪贴板
                     copyToClipboard(tab.id, screenshotResult.data);
-                    
+
                     chrome.debugger.detach({ tabId: tab.id });
                   }
                 }
@@ -113,7 +119,7 @@ chrome.action.onClicked.addListener((tab) => {
 
 function downloadImage(base64Data, title = "screenshot") {
   const dataUrl = `data:image/png;base64,${base64Data}`;
-  
+
   chrome.downloads.download({
     url: dataUrl,
     filename: `${sanitizeFileName(title)}.png`,
@@ -152,13 +158,13 @@ async function copyImageToClipboard(base64Data) {
   try {
     const response = await fetch('data:image/png;base64,' + base64Data);
     const blob = await response.blob();
-    
+
     await navigator.clipboard.write([
       new ClipboardItem({
         'image/png': blob
       })
     ]);
-    
+
     return { success: true, message: '图片已复制到剪贴板' };
   } catch (error) {
     return { success: false, error: error.message };
