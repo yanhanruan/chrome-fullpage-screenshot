@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test 12: 响应式布局</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #f5f7fa;
+      min-height: 100vh;
+    }
+
+    .test-info {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: rgba(59, 130, 246, 0.95);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 6px;
+      font-size: 14px;
+      z-index: 10000;
+      font-weight: 600;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: clamp(28px, 5vw, 48px);
+      margin-bottom: 16px;
+    }
+
+    .header p {
+      font-size: clamp(14px, 3vw, 20px);
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .info-box {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      margin-bottom: 40px;
+    }
+
+    .info-box h2 {
+      color: #1f2937;
+      font-size: clamp(20px, 4vw, 32px);
+      margin-bottom: 16px;
+    }
+
+    .info-box p {
+      color: #6b7280;
+      line-height: 1.8;
+      font-size: clamp(14px, 2vw, 16px);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .card {
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    }
+
+    .card h3 {
+      color: #3b82f6;
+      font-size: clamp(18px, 3vw, 24px);
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: #6b7280;
+      font-size: clamp(13px, 2vw, 15px);
+      line-height: 1.6;
+    }
+
+    .breakpoint-indicator {
+      background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 40px;
+      text-align: center;
+      font-weight: 600;
+      color: #92400e;
+    }
+
+    .breakpoint-indicator::before {
+      content: '当前断点: ';
+    }
+
+    @media (max-width: 640px) {
+      .breakpoint-indicator::after {
+        content: '移动端 (< 640px)';
+      }
+    }
+
+    @media (min-width: 641px) and (max-width: 768px) {
+      .breakpoint-indicator::after {
+        content: '小平板 (641-768px)';
+      }
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .breakpoint-indicator::after {
+        content: '平板 (769-1024px)';
+      }
+    }
+
+    @media (min-width: 1025px) and (max-width: 1280px) {
+      .breakpoint-indicator::after {
+        content: '小桌面 (1025-1280px)';
+      }
+    }
+
+    @media (min-width: 1281px) {
+      .breakpoint-indicator::after {
+        content: '大桌面 (> 1280px)';
+      }
+    }
+
+    .flex-layout {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .flex-item {
+      flex: 1 1 300px;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+
+    .responsive-table {
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      margin-bottom: 40px;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 600px;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    th {
+      background: #f9fafb;
+      font-weight: 600;
+      color: #374151;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 20px 16px;
+      }
+
+      .info-box {
+        padding: 20px;
+      }
+
+      .card {
+        padding: 16px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .footer {
+      background: #1f2937;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .size-display {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: rgba(16, 185, 129, 0.95);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-family: monospace;
+      z-index: 10000;
+    }
+  </style>
+</head>
+<body>
+  <div class="test-info">Test 12: 响应式布局</div>
+  <div class="size-display" id="sizeDisplay"></div>
+
+  <div class="header">
+    <h1>📱 响应式布局测试</h1>
+    <p>测试不同窗口尺寸下的截图效果 - 尝试调整浏览器窗口大小后截图</p>
+  </div>
+
+  <div class="container">
+    <div class="breakpoint-indicator"></div>
+
+    <div class="info-box">
+      <h2>💡 测试说明</h2>
+      <p>
+        这个页面采用了响应式设计，会根据视口宽度自动调整布局。
+        你可以尝试调整浏览器窗口到不同的宽度（如 375px、768px、1024px、1920px），
+        然后使用截图插件进行截图，检查每种尺寸下的布局是否正确。
+      </p>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h3>🎯 测试目标</h3>
+        <p>验证插件能否正确捕获响应式布局，而不是固定某个尺寸。</p>
+      </div>
+      <div class="card">
+        <h3>📐 自适应</h3>
+        <p>页面会根据视口宽度自动调整列数、字体大小和间距。</p>
+      </div>
+      <div class="card">
+        <h3>🔍 检查点</h3>
+        <p>截图应该反映当前窗口大小下的实际布局状态。</p>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <h2>📊 常见视口尺寸</h2>
+      <div class="flex-layout">
+        <div class="flex-item">
+          <strong>移动端</strong><br>
+          375×667 (iPhone SE)<br>
+          390×844 (iPhone 14)<br>
+          360×640 (Android)
+        </div>
+        <div class="flex-item">
+          <strong>平板</strong><br>
+          768×1024 (iPad)<br>
+          820×1180 (iPad Air)<br>
+          1024×1366 (iPad Pro)
+        </div>
+        <div class="flex-item">
+          <strong>桌面</strong><br>
+          1366×768 (笔记本)<br>
+          1920×1080 (Full HD)<br>
+          2560×1440 (2K)
+        </div>
+      </div>
+    </div>
+
+    <div class="responsive-table">
+      <h3 style="margin-bottom: 16px; color: #1f2937;">断点说明</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>断点名称</th>
+            <th>宽度范围</th>
+            <th>典型设备</th>
+            <th>布局特点</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>移动端</td>
+            <td>< 640px</td>
+            <td>手机</td>
+            <td>单列布局</td>
+          </tr>
+          <tr>
+            <td>小平板</td>
+            <td>641-768px</td>
+            <td>大屏手机/小平板</td>
+            <td>1-2列布局</td>
+          </tr>
+          <tr>
+            <td>平板</td>
+            <td>769-1024px</td>
+            <td>平板</td>
+            <td>2-3列布局</td>
+          </tr>
+          <tr>
+            <td>小桌面</td>
+            <td>1025-1280px</td>
+            <td>笔记本</td>
+            <td>3-4列布局</td>
+          </tr>
+          <tr>
+            <td>大桌面</td>
+            <td>> 1280px</td>
+            <td>台式机/大屏</td>
+            <td>4+列布局</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="info-box">
+      <h2>✅ 预期行为</h2>
+      <p style="margin-bottom: 12px;">
+        <strong>正确的截图插件应该：</strong>
+      </p>
+      <ul style="list-style: none; padding: 0;">
+        <li style="padding: 8px 0; border-bottom: 1px solid #e5e7eb;">
+          ✓ 捕获当前视口宽度下的布局
+        </li>
+        <li style="padding: 8px 0; border-bottom: 1px solid #e5e7eb;">
+          ✓ 保持响应式断点的效果
+        </li>
+        <li style="padding: 8px 0; border-bottom: 1px solid #e5e7eb;">
+          ✓ 正确显示媒体查询的样式
+        </li>
+        <li style="padding: 8px 0; border-bottom: 1px solid #e5e7eb;">
+          ✓ 不会强制切换到某个固定宽度
+        </li>
+        <li style="padding: 8px 0;">
+          ✓ 截图尺寸匹配实际页面尺寸
+        </li>
+      </ul>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h3>1️⃣ 步骤一</h3>
+        <p>调整浏览器窗口到你想要测试的宽度（如 768px）</p>
+      </div>
+      <div class="card">
+        <h3>2️⃣ 步骤二</h3>
+        <p>观察页面布局是否按照该宽度正确显示</p>
+      </div>
+      <div class="card">
+        <h3>3️⃣ 步骤三</h3>
+        <p>使用截图插件进行截图</p>
+      </div>
+      <div class="card">
+        <h3>4️⃣ 步骤四</h3>
+        <p>检查截图是否正确反映了当前的响应式布局</p>
+      </div>
+    </div>
+
+    <div class="info-box" style="background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%); border-left: 4px solid #3b82f6;">
+      <h2 style="color: #1e40af;">💡 提示</h2>
+      <p style="color: #1f2937;">
+        左下角显示当前页面的实际尺寸。
+        截图完成后，对比截图的尺寸和这里显示的尺寸，应该是一致的（或者接近，考虑滚动条等因素）。
+      </p>
+    </div>
+  </div>
+
+  <div class="footer">
+    <h3 style="margin-bottom: 12px;">测试完成</h3>
+    <p style="opacity: 0.8;">
+      响应式布局测试 - 尝试不同窗口尺寸以获得最佳测试效果
+    </p>
+  </div>
+
+  <script>
+    function updateSize() {
+      const width = document.documentElement.clientWidth;
+      const height = document.documentElement.scrollHeight;
+      document.getElementById('sizeDisplay').textContent = 
+        `视口: ${window.innerWidth}×${window.innerHeight} | 页面: ${width}×${height}`;
+    }
+    
+    updateSize();
+    window.addEventListener('resize', updateSize);
+  </script>
+</body>
+</html>

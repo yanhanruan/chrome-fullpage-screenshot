@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Test 9: 时间轴 - 1200×20000px</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 1200px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #f8f9fa;
+    }
+
+    .test-info {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: rgba(239, 68, 68, 0.9);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 6px;
+      font-size: 14px;
+      z-index: 1000;
+      font-weight: 600;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+      color: white;
+      padding: 80px 60px;
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+
+    .header p {
+      font-size: 20px;
+      opacity: 0.9;
+    }
+
+    .timeline-container {
+      max-width: 900px;
+      margin: 80px auto;
+      position: relative;
+      padding: 0 60px;
+    }
+
+    .timeline-line {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: linear-gradient(to bottom, #ef4444, #dc2626);
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 100px;
+    }
+
+    .timeline-item:nth-child(odd) .content {
+      margin-left: 0;
+      margin-right: 50%;
+      padding-right: 60px;
+      text-align: right;
+    }
+
+    .timeline-item:nth-child(even) .content {
+      margin-left: 50%;
+      padding-left: 60px;
+      text-align: left;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: 50%;
+      top: 24px;
+      width: 24px;
+      height: 24px;
+      background: #ef4444;
+      border: 4px solid white;
+      border-radius: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.2);
+    }
+
+    .content {
+      background: white;
+      padding: 32px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .year {
+      display: inline-block;
+      background: #ef4444;
+      color: white;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .content h3 {
+      color: #1f2937;
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    .content p {
+      color: #6b7280;
+      line-height: 1.8;
+      font-size: 15px;
+    }
+
+    .milestone {
+      background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+      border-left: 4px solid #f59e0b;
+    }
+
+    .milestone .year {
+      background: #f59e0b;
+    }
+
+    .footer-marker {
+      background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+      color: white;
+      text-align: center;
+      padding: 60px;
+      margin: 80px 60px 60px;
+      border-radius: 12px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="test-info">Test 9: 1200×20000px</div>
+
+  <div class="header">
+    <h1>📅 公司发展时间轴</h1>
+    <p>从创立到现在的完整历程</p>
+  </div>
+
+  <div class="timeline-container">
+    <div class="timeline-line"></div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="content milestone">
+        <span class="year">2010</span>
+        <h3>公司成立</h3>
+        <p>三位创始人在车库里开始了创业之旅，初始团队仅有5人，专注于移动应用开发。</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="content">
+        <span class="year">2011</span>
+        <h3>首个产品发布</h3>
+        <p>经过一年的努力，我们的第一款产品正式上线，获得了1万名早期用户的支持。</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="content">
+        <span class="year">2012</span>
+        <h3>天使轮融资</h3>
+        <p>成功获得500万美元天使轮融资，团队扩展到20人，开始专业化运营。</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="content milestone">
+        <span class="year">2013</span>
+        <h3>用户突破100万</h3>
+        <p>用户数量突破100万大关，日活跃用户达到30万，成为行业内的新星。</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="content">
+        <span class="year">2014</span>
+        <h3>A轮融资</h3>
+        <p>完成2000万美元A轮融资，开始布局多条产品线，团队增至80人。</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="content">
+        <span class="year">2015</span>
+        <h3>国际化扩张</h3>
+        <p>开始进军国际市场，在美国和欧洲设立办事处，产品支持15种语言。</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="content milestone">
+        <span class="year">2016</span>
+        <h3>B轮融资</h3>
+        <p>获得8000万美元B轮融资，估值突破5亿美元，正式成为独角兽候选。</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="content">
+        <span class="year">2017</span>
+        <h3>产品矩阵完善</h3>
+        <p>推出5款新产品，形成完整的产品矩阵，覆盖移动端、Web端和桌面端。</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="content">
+        <span class="year">2018</span>
+        <h3>技术创新</h3>
+        <p>成立AI实验室，开始在人工智能和机器学习领域的深度探索。</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="content milestone">
+        <span class="year">2019</span>
+        <h3>用户破千万</h3>
+        <p>全球用户数突破1000万，成为行业内用户规模最大的平台之一。</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="content">
+        <span class="year">2020</span>
+        <h3>C轮融资</h3>
+        <p>完成2.5亿美元C轮融资，估值达到20亿美元，正式跻身独角兽行列。</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="content">
+        <span class="year">2021</span>
+        <h3>战略收购</h3>
+        <p>收购两家初创公司，整合优质资源，进一步巩固市场地位。</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="content">
+        <span class="year">2022</span>
+        <h3>生态建设</h3>
+        <p>推出开放平台，吸引1000+开发者入驻，构建健康的生态系统。</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="content milestone">
+        <span class="year">2023</span>
+        <h3>IPO筹备</h3>
+        <p>启动上市准备工作，公司估值达到50亿美元，团队规模超过500人。</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="content">
+        <span class="year">2024</span>
+        <h3>新业务拓展</h3>
+        <p>进军企业服务市场，推出B端产品线，开启新的增长曲线。</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="content">
+        <span class="year">2024 Q2</span>
+        <h3>全球化深化</h3>
+        <p>在亚太地区开设新的研发中心，加强本地化运营能力。</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="content">
+        <span class="year">2024 Q3</span>
+        <h3>技术突破</h3>
+        <p>AI产品正式发布，在自然语言处理领域取得重大突破。</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="content milestone">
+        <span class="year">2024 Q4</span>
+        <h3>里程碑时刻</h3>
+        <p>年度营收突破10亿美元，成为行业领军企业，用户覆盖全球100+国家。</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="content">
+        <span class="year">2025 Q1</span>
+        <h3>战略升级</h3>
+        <p>发布五年战略规划，明确下一阶段的发展方向和目标。</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="content">
+        <span class="year">2025 Q2</span>
+        <h3>社会责任</h3>
+        <p>成立公益基金会,启动多个社会公益项目，践行企业社会责任。</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="content">
+        <span class="year">2025 Q3</span>
+        <h3>合作伙伴计划</h3>
+        <p>推出全球合作伙伴计划，与行业领先企业建立战略合作关系。</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="content milestone">
+        <span class="year">2025 Q4</span>
+        <h3>未来展望</h3>
+        <p>制定2030愿景，致力于成为全球领先的科技公司，改变人们的生活方式。</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="content">
+        <span class="year">2026 →</span>
+        <h3>持续创新</h3>
+        <p>保持创新精神，不断推出令用户惊喜的产品，引领行业发展趋势。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-marker">
+    ✓ 时间轴底部<br>
+    <span style="font-size: 16px; font-weight: normal; margin-top: 12px; display: block;">
+      如果能看到这里，说明完整的20000px高度页面已被截取
+    </span>
+  </div>
+</body>
+</html>

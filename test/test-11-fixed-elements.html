@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Test 11: 固定元素 - 1400×10000px</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 1400px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #f5f7fa;
+    }
+
+    /* 固定顶部导航 */
+    .fixed-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 70px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      display: flex;
+      align-items: center;
+      padding: 0 40px;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .fixed-header h1 {
+      font-size: 24px;
+    }
+
+    .fixed-header .warning {
+      margin-left: auto;
+      background: rgba(255,255,255,0.2);
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    /* 粘性侧边栏 */
+    .sticky-sidebar {
+      position: fixed;
+      top: 120px;
+      right: 40px;
+      width: 280px;
+      background: white;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      z-index: 100;
+    }
+
+    .sticky-sidebar h3 {
+      color: #667eea;
+      margin-bottom: 16px;
+      font-size: 18px;
+    }
+
+    .sticky-sidebar ul {
+      list-style: none;
+    }
+
+    .sticky-sidebar li {
+      padding: 8px 0;
+      color: #666;
+      font-size: 14px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .sticky-sidebar li:last-child {
+      border-bottom: none;
+    }
+
+    /* 主内容区 */
+    .content {
+      margin-top: 120px;
+      margin-left: 40px;
+      margin-right: 360px;
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .section {
+      margin-bottom: 80px;
+      padding: 40px;
+      border-left: 4px solid #667eea;
+      background: #f8f9ff;
+      border-radius: 8px;
+    }
+
+    .section h2 {
+      color: #333;
+      font-size: 28px;
+      margin-bottom: 16px;
+    }
+
+    .section p {
+      color: #555;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    /* 固定底部栏 */
+    .fixed-footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background: #2c3e50;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    }
+
+    .test-info {
+      position: fixed;
+      top: 80px;
+      left: 40px;
+      background: rgba(245, 158, 11, 0.95);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 6px;
+      font-size: 14px;
+      z-index: 1001;
+    }
+
+    .floating-button {
+      position: fixed;
+      bottom: 80px;
+      right: 40px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #10b981;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+      z-index: 100;
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      right: 40px;
+      width: 4px;
+      background: rgba(102, 126, 234, 0.2);
+      border-radius: 2px;
+    }
+
+    .scroll-thumb {
+      position: absolute;
+      width: 100%;
+      background: #667eea;
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+  </style>
+</head>
+<body>
+  <div class="fixed-header">
+    <h1>🔒 固定元素测试</h1>
+    <div class="warning">⚠️ 此页面包含Fixed/Sticky元素</div>
+  </div>
+
+  <div class="test-info">Test 11: 1400×10000px</div>
+
+  <div class="sticky-sidebar">
+    <h3>📋 检查清单</h3>
+    <ul>
+      <li>✓ 固定顶部导航栏</li>
+      <li>✓ 粘性侧边栏</li>
+      <li>✓ 固定底部栏</li>
+      <li>✓ 浮动按钮</li>
+      <li>✓ 滚动内容完整性</li>
+    </ul>
+  </div>
+
+  <div class="content">
+    <div class="section">
+      <h2>Section 1: 测试说明</h2>
+      <p>
+        这个测试页面包含多种固定定位元素，用于验证截图插件在处理复杂布局时的表现。
+        固定元素（position: fixed）在截图时可能出现以下问题：
+      </p>
+      <p>
+        1. 重复出现 - 固定元素可能在截图的多个位置重复显示<br>
+        2. 遮挡内容 - 固定元素可能遮挡主要内容<br>
+        3. 位置错误 - 固定元素可能出现在错误的位置
+      </p>
+      <p>
+        优秀的截图工具应该能够正确处理这些元素，确保它们只在应该出现的位置出现一次。
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Section 2: 固定顶部导航</h2>
+      <p>
+        页面顶部的紫色导航栏使用了 position: fixed，应该只在截图顶部出现一次。
+        如果在截图中看到多个导航栏，说明工具没有正确处理固定定位。
+      </p>
+      <p>
+        导航栏包含标题和警告信息，都应该完整清晰地显示。
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Section 3: 粘性侧边栏</h2>
+      <p>
+        右侧的白色侧边栏也使用了 fixed 定位，包含一个检查清单。
+        它应该只在截图中出现一次，并且不应该遮挡主要内容区域。
+      </p>
+      <p>
+        侧边栏的所有列表项都应该清晰可读。
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Section 4: 长内容区域</h2>
+      <p>
+        为了测试长页面的表现，我们需要添加足够的内容使页面达到约10000像素的高度。
+        这部分内容应该完整地显示在截图中，不被固定元素遮挡。
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Section 5: 继续滚动</h2>
+      <p>
+        继续向下滚动，测试页面的中间部分。固定元素应该保持在它们的位置，
+        而主要内容应该正常滚动并被完整捕获。
+      </p>
+      <p>
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Section 6: 更多内容</h2>
+      <p>
+        这个部分继续添加内容。在真实场景中，固定导航栏常用于让用户快速访问主菜单，
+        而不需要滚动回页面顶部。
+      </p>
+      <p>
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Section 7: 中点检查</h2>
+      <p>
+        如果你在截图中看到这一部分，说明已经捕获了大约一半的页面内容。
+        检查固定元素是否正常显示，没有重复或错位。
+      </p>
+      <p>
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Section 8: 持续测试</h2>
+      <p>
+        我们继续添加内容以确保页面足够长。每个部分都应该在截图中完整显示，
+        文字清晰，布局正确。
+      </p>
+      <p>
+        Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Section 9: 接近底部</h2>
+      <p>
+        页面即将到达底部。固定底部栏应该只在截图的最底部出现一次。
+        浮动按钮也应该只出现一次，位置正确。
+      </p>
+      <p>
+        Omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Section 10: 最后部分</h2>
+      <p>
+        这是页面的最后一个部分。如果截图中能看到这里，并且固定底部栏在下方正确显示，
+        说明截图工具成功处理了整个页面及其固定元素。
+      </p>
+      <p>
+        测试完成！检查所有固定元素是否只出现一次，位置是否正确。
+      </p>
+    </div>
+
+    <!-- 添加更多内容以达到目标高度 -->
+    <script>
+      for (let i = 11; i <= 40; i++) {
+        const section = document.createElement('div');
+        section.className = 'section';
+        section.innerHTML = `
+          <h2>Section ${i}: 填充内容</h2>
+          <p>
+            这是第 ${i} 个部分，用于增加页面高度。每个部分都应该在截图中完整显示。
+          </p>
+          <p>
+            持续测试页面的长度处理能力，确保从顶部到底部的所有内容都被正确捕获。
+          </p>
+        `;
+        document.querySelector('.content').appendChild(section);
+      }
+    </script>
+  </div>
+
+  <div class="floating-button">↑</div>
+
+  <div class="fixed-footer">
+    🎯 固定底部栏 - 应该只在截图底部出现一次
+  </div>
+
+  <!-- 滚动指示器 -->
+  <div class="scroll-indicator" style="top: 70px; bottom: 60px;">
+    <div class="scroll-thumb" style="height: 50px; top: 0;"></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Test 4: 长文档 - 1000×12000px</title>
+  <style>
+    body {
+      margin: 0;
+      width: 1000px;
+      font-family: Georgia, serif;
+      background: #fafafa;
+      line-height: 1.8;
+    }
+
+    .test-info {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: rgba(230, 126, 34, 0.9);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 6px;
+      font-size: 14px;
+      z-index: 1000;
+      font-family: system-ui, sans-serif;
+    }
+
+    .document {
+      max-width: 700px;
+      margin: 0 auto;
+      background: white;
+      padding: 80px 60px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.05);
+    }
+
+    .title {
+      font-size: 42px;
+      color: #2c3e50;
+      margin-bottom: 12px;
+      text-align: center;
+      border-bottom: 3px solid #e67e22;
+      padding-bottom: 20px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #7f8c8d;
+      font-style: italic;
+      margin-bottom: 60px;
+      font-size: 18px;
+    }
+
+    .chapter {
+      margin-bottom: 80px;
+    }
+
+    .chapter-title {
+      font-size: 32px;
+      color: #e67e22;
+      margin-bottom: 24px;
+      border-left: 5px solid #e67e22;
+      padding-left: 20px;
+    }
+
+    .paragraph {
+      color: #34495e;
+      font-size: 16px;
+      margin-bottom: 24px;
+      text-align: justify;
+    }
+
+    .quote {
+      border-left: 4px solid #e67e22;
+      padding-left: 20px;
+      margin: 40px 0;
+      font-style: italic;
+      color: #555;
+    }
+
+    .section-number {
+      display: inline-block;
+      background: #e67e22;
+      color: white;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 36px;
+      margin-right: 12px;
+      font-family: system-ui, sans-serif;
+      font-weight: bold;
+    }
+
+    .footer-marker {
+      text-align: center;
+      padding: 60px 20px;
+      background: #2c3e50;
+      color: white;
+      font-size: 24px;
+      margin-top: 80px;
+    }
+  </style>
+</head>
+<body>
+  <div class="test-info">Test 4: 1000×12000px</div>
+
+  <div class="document">
+    <h1 class="title">长文档测试</h1>
+    <p class="subtitle">测试垂直滚动和长页面处理能力</p>
+
+    <div class="chapter">
+      <h2 class="chapter-title"><span class="section-number">1</span>第一章：引言</h2>
+      <p class="paragraph">
+        这是一个测试长页面截图能力的文档。总高度约为12000像素，用于验证插件在处理较长但不算极端的页面时的表现。
+        这个尺寸代表了很多实际场景，如长文章、完整的产品说明页、或者包含多个章节的文档。
+      </p>
+      <p class="paragraph">
+        优秀的截图工具应该能够流畅处理这种长度的页面，保持所有内容的清晰度，并在合理的时间内完成截图（通常2-5秒）。
+      </p>
+      <div class="quote">
+        "一个好的工具不仅要能完成任务，还要让用户感到舒适和高效。" - 未知
+      </div>
+    </div>
+
+    <div class="chapter">
+      <h2 class="chapter-title"><span class="section-number">2</span>第二章：技术要点</h2>
+      <p class="paragraph">
+        长页面截图面临几个技术挑战。首先是内存管理 - 12000像素高的页面在全分辨率下会占用大约50-100MB的内存，
+        这对大多数现代浏览器来说是可以接受的范围。
+      </p>
+      <p class="paragraph">
+        其次是渲染性能。浏览器需要渲染整个页面的可见和不可见部分，这可能需要额外的处理时间。
+        良好的实现应该利用浏览器的 DevTools Protocol 来高效完成这个任务。
+      </p>
+      <p class="paragraph">
+        第三个挑战是确保页面布局的正确性。某些CSS效果（如视差滚动、粘性定位）可能在截图时表现异常。
+        虽然这个测试页面没有这些复杂效果，但在实际使用中需要考虑。
+      </p>
+    </div>
+
+    <div class="chapter">
+      <h2 class="chapter-title"><span class="section-number">3</span>第三章：预期结果</h2>
+      <p class="paragraph">
+        对于这个测试页面，我们期待以下结果：
+      </p>
+      <p class="paragraph">
+        1. 完整捕获：从页面顶部的标题到底部的页脚标记，所有内容都应该出现在截图中。
+      </p>
+      <p class="paragraph">
+        2. 视觉质量：文字应该清晰可读，颜色准确，渐变和阴影效果正常显示。
+      </p>
+      <p class="paragraph">
+        3. 无滚动条：截图中不应该出现任何浏览器滚动条。
+      </p>
+      <p class="paragraph">
+        4. 性能表现：截图过程应该在5秒内完成，不应导致浏览器卡顿或无响应。
+      </p>
+      <div class="quote">
+        "简单的事情应该简单，复杂的事情应该可能。" - Alan Kay
+      </div>
+    </div>
+
+    <div class="chapter">
+      <h2 class="chapter-title"><span class="section-number">4</span>第四章：扩展内容</h2>
+      <p class="paragraph">
+        为了达到目标高度，我们需要添加足够的内容。这些段落虽然看起来是填充内容，但实际上也在测试截图工具处理
+        大量文本的能力。每一段文字都应该被完整、清晰地捕获。
+      </p>
+      <p class="paragraph">
+        在实际应用中，长文档可能包含更多样化的内容类型：代码块、表格、列表、图片等。这个测试主要关注纯文本
+        和基本排版元素的处理。
+      </p>
+      <p class="paragraph">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore 
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </p>
+      <p class="paragraph">
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+    </div>
+
+    <div class="chapter">
+      <h2 class="chapter-title"><span class="section-number">5</span>第五章：中间检查点</h2>
+      <p class="paragraph">
+        如果你在截图中看到这一章，说明已经捕获了大约一半的页面内容。这是一个重要的检查点 - 有些截图工具
+        可能在处理长页面时出现中途截断的问题。
+      </p>
+      <p class="paragraph">
+        继续向下滚动，我们还有大约一半的内容。保持耐心，测试即将完成。
+      </p>
+      <div class="quote">
+        "测试不仅是为了找bug，更是为了建立信心。" - 测试格言
+      </div>
+    </div>
+
+    <div class="chapter">
+      <h2 class="chapter-title"><span class="section-number">6</span>第六章：更多内容</h2>
+      <p class="paragraph">
+        这一章继续添加内容以确保页面达到目标高度。每一段文字都有其存在的意义 - 它们共同构成了一个
+        真实的长文档场景。
+      </p>
+      <p class="paragraph">
+        在实际工作中，用户可能需要截取完整的技术文档、学术论文、产品手册等。这些文档往往都有相当的长度。
+      </p>
+      <p class="paragraph">
+        Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat 
+        facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
+      </p>
+    </div>
+
+    <div class="chapter">
+      <h2 class="chapter-title"><span class="section-number">7</span>第七章：持续测试</h2>
+      <p class="paragraph">
+        我们继续添加章节，确保页面有足够的内容。这种重复性的结构也是真实文档的常见特征。
+      </p>
+      <p class="paragraph">
+        At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti 
+        atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.
+      </p>
+      <p class="paragraph">
+        Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem 
+        rerum facilis est et expedita distinctio.
+      </p>
+      <div class="quote">
+        "质量不是偶然的，它是细心努力的结果。" - John Ruskin
+      </div>
+    </div>
+
+    <div class="chapter">
+      <h2 class="chapter-title"><span class="section-number">8</span>第八章：接近尾声</h2>
+      <p class="paragraph">
+        我们正在接近文档的尾部。如果截图工具能够完整捕获这一部分，说明它的长页面处理能力是合格的。
+      </p>
+      <p class="paragraph">
+        Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat 
+        facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut 
+        officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.
+      </p>
+      <p class="paragraph">
+        Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur 
+        aut perferendis doloribus asperiores repellat.
+      </p>
+    </div>
+
+    <div class="chapter">
+      <h2 class="chapter-title"><span class="section-number">9</span>第九章：最后一章</h2>
+      <p class="paragraph">
+        这是文档的最后一章。如果你在截图中看到这里，恭喜！你的截图工具成功捕获了整个12000像素高的页面。
+      </p>
+      <p class="paragraph">
+        这个测试验证了工具在处理中等长度页面时的稳定性和可靠性。虽然不是极限情况，但代表了大量实际使用场景。
+      </p>
+      <p class="paragraph">
+        感谢你耐心完成这个测试。现在可以检查截图质量，确保所有内容都被正确捕获。
+      </p>
+      <div class="quote">
+        "工具的价值不在于它能做什么，而在于它能帮助你做什么。" - 工程哲学
+      </div>
+    </div>
+
+    <div class="footer-marker">
+      ✓ 页面底部 - 测试完成
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>截图插件测试套件</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #f5f5f5;
+      padding: 40px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 12px;
+      font-size: 32px;
+    }
+
+    .subtitle {
+      color: #666;
+      margin-bottom: 40px;
+      font-size: 16px;
+    }
+
+    .test-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .test-card {
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 24px;
+      transition: all 0.3s;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .test-card:hover {
+      border-color: #4CAF50;
+      box-shadow: 0 4px 12px rgba(76, 175, 80, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .test-card h3 {
+      color: #333;
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    .test-card .dimensions {
+      color: #2196F3;
+      font-weight: 600;
+      margin-bottom: 12px;
+      font-size: 14px;
+    }
+
+    .test-card .description {
+      color: #666;
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    .test-card .difficulty {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .difficulty.easy {
+      background: #E8F5E9;
+      color: #2E7D32;
+    }
+
+    .difficulty.medium {
+      background: #FFF3E0;
+      color: #E65100;
+    }
+
+    .difficulty.hard {
+      background: #FFEBEE;
+      color: #C62828;
+    }
+
+    .difficulty.extreme {
+      background: #F3E5F5;
+      color: #6A1B9A;
+    }
+
+    .info-section {
+      background: #E3F2FD;
+      padding: 24px;
+      border-radius: 8px;
+      margin-top: 40px;
+    }
+
+    .info-section h2 {
+      color: #1565C0;
+      margin-bottom: 16px;
+      font-size: 20px;
+    }
+
+    .info-section ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .info-section li {
+      padding: 8px 0;
+      color: #424242;
+      line-height: 1.6;
+    }
+
+    .info-section li:before {
+      content: "✓ ";
+      color: #4CAF50;
+      font-weight: bold;
+      margin-right: 8px;
+    }
+
+    .legend {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .legend-box {
+      width: 20px;
+      height: 20px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📸 截图插件性能测试套件</h1>
+    <p class="subtitle">点击下方测试用例打开对应的测试页面</p>
+
+    <div class="test-grid">
+      <!-- 简单测试 -->
+      <div class="test-card" onclick="openTest('test-1-simple.html')">
+        <h3>Test 1: 标准网页</h3>
+        <div class="dimensions">1200×3000px</div>
+        <div class="description">模拟普通文章页面，包含文字、图片、段落。最常见的使用场景。</div>
+        <span class="difficulty easy">简单</span>
+      </div>
+
+      <div class="test-card" onclick="openTest('test-2-wide.html')">
+        <h3>Test 2: 宽屏页面</h3>
+        <div class="dimensions">3000×2000px</div>
+        <div class="description">横向较宽的页面，测试水平滚动处理能力。</div>
+        <span class="difficulty easy">简单</span>
+      </div>
+
+      <div class="test-card" onclick="openTest('test-3-dashboard.html')">
+        <h3>Test 3: 数据仪表板</h3>
+        <div class="dimensions">1920×4500px</div>
+        <div class="description">包含图表、表格、卡片的复杂布局。</div>
+        <span class="difficulty medium">中等</span>
+      </div>
+
+      <!-- 中等测试 -->
+      <div class="test-card" onclick="openTest('test-4-long-form.html')">
+        <h3>Test 4: 长文档</h3>
+        <div class="dimensions">1000×12000px</div>
+        <div class="description">长篇文章或文档，测试垂直滚动。</div>
+        <span class="difficulty medium">中等</span>
+      </div>
+
+      <div class="test-card" onclick="openTest('test-5-image-gallery.html')">
+        <h3>Test 5: 图片画廊</h3>
+        <div class="dimensions">1400×8000px</div>
+        <div class="description">大量图片的网格布局，测试图片渲染。</div>
+        <span class="difficulty medium">中等</span>
+      </div>
+
+      <div class="test-card" onclick="openTest('test-6-wide-table.html')">
+        <h3>Test 6: 宽表格</h3>
+        <div class="dimensions">5000×3000px</div>
+        <div class="description">超宽数据表格，需要水平滚动查看。</div>
+        <span class="difficulty medium">中等</span>
+      </div>
+
+      <!-- 困难测试 -->
+      <div class="test-card" onclick="openTest('test-7-limit.html')">
+        <h3>Test 7: 接近限制</h3>
+        <div class="dimensions">16000×16000px</div>
+        <div class="description">接近Chrome最大限制的页面。</div>
+        <span class="difficulty hard">困难</span>
+      </div>
+
+      <div class="test-card" onclick="openTest('test-8-ultra-wide.html')">
+        <h3>Test 8: 超宽设计稿</h3>
+        <div class="dimensions">8000×2000px</div>
+        <div class="description">设计稿或横幅，极宽但不高。</div>
+        <span class="difficulty hard">困难</span>
+      </div>
+
+      <div class="test-card" onclick="openTest('test-9-timeline.html')">
+        <h3>Test 9: 时间轴</h3>
+        <div class="dimensions">1200×20000px</div>
+        <div class="description">垂直时间轴，超出默认限制。</div>
+        <span class="difficulty hard">困难</span>
+      </div>
+
+      <!-- 极限测试 -->
+      <div class="test-card" onclick="openTest('test-10-extreme.html')">
+        <h3>Test 10: 极限压力</h3>
+        <div class="dimensions">4000×40000px</div>
+        <div class="description">测试插件的保护机制和降级处理。</div>
+        <span class="difficulty extreme">极限</span>
+      </div>
+
+      <div class="test-card" onclick="openTest('test-11-fixed-elements.html')">
+        <h3>Test 11: 固定元素</h3>
+        <div class="dimensions">1400×10000px</div>
+        <div class="description">包含fixed/sticky定位元素的长页面。</div>
+        <span class="difficulty medium">中等</span>
+      </div>
+
+      <div class="test-card" onclick="openTest('test-12-responsive.html')">
+        <h3>Test 12: 响应式布局</h3>
+        <div class="dimensions">变化尺寸</div>
+        <div class="description">测试不同窗口大小下的截图效果。</div>
+        <span class="difficulty medium">中等</span>
+      </div>
+    </div>
+
+    <div class="info-section">
+      <h2>测试目标</h2>
+      <ul>
+        <li><strong>基础功能：</strong>正确截取整个页面，包括滚动区域</li>
+        <li><strong>性能表现：</strong>不同尺寸下的处理速度和内存占用</li>
+        <li><strong>边界处理：</strong>超大页面的降级策略和错误提示</li>
+        <li><strong>视觉质量：</strong>图片清晰度、布局完整性、无滚动条</li>
+        <li><strong>特殊元素：</strong>固定定位、粘性定位、iframe等的处理</li>
+      </ul>
+
+      <div class="legend">
+        <div class="legend-item">
+          <div class="legend-box" style="background: #E8F5E9;"></div>
+          <span>简单 - 应完美处理</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-box" style="background: #FFF3E0;"></div>
+          <span>中等 - 正常处理</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-box" style="background: #FFEBEE;"></div>
+          <span>困难 - 可能需要限制</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-box" style="background: #F3E5F5;"></div>
+          <span>极限 - 测试保护机制</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openTest(filename) {
+      window.open(filename, '_blank');
+    }
+  </script>
+</body>
+</html>

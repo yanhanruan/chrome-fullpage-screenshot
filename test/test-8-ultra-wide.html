@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Test 8: 超宽设计稿 - 8000×2000px</title>
+  <style>
+    body {
+      margin: 0;
+      width: 8000px;
+      height: 2000px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #ffffff;
+      position: relative;
+    }
+
+    .test-info {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: rgba(139, 92, 246, 0.9);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 6px;
+      font-size: 14px;
+      z-index: 1000;
+      font-weight: 600;
+    }
+
+    .design-canvas {
+      display: flex;
+      height: 100%;
+    }
+
+    .screen {
+      flex-shrink: 0;
+      width: 1600px;
+      height: 100%;
+      border-right: 2px solid #e5e7eb;
+      display: flex;
+      flex-direction: column;
+      padding: 40px;
+      position: relative;
+    }
+
+    .screen-label {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: #8b5cf6;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .screen h2 {
+      margin-top: 80px;
+      font-size: 48px;
+      color: #1f2937;
+      margin-bottom: 20px;
+    }
+
+    .screen p {
+      font-size: 20px;
+      color: #6b7280;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .feature-box {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 40px;
+      border-radius: 16px;
+      margin-bottom: 20px;
+    }
+
+    .feature-box h3 {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+    .mockup {
+      flex: 1;
+      background: #f3f4f6;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: #9ca3af;
+      margin-top: 20px;
+    }
+
+    .timeline-bar {
+      position: absolute;
+      bottom: 40px;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: rgba(0,0,0,0.05);
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      font-size: 14px;
+      color: #6b7280;
+      font-weight: 600;
+    }
+
+    .color-1 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+    .color-2 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+    .color-3 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+    .color-4 { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+    .color-5 { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+  </style>
+</head>
+<body>
+  <div class="test-info">Test 8: 8000×2000px (超宽设计稿)</div>
+
+  <div class="design-canvas">
+    <!-- Screen 1 -->
+    <div class="screen">
+      <div class="screen-label">Screen 1 / 5</div>
+      <h2>欢迎页面</h2>
+      <p>应用启动时的第一印象。简洁、有冲击力的视觉设计，配合品牌slogan。</p>
+      <div class="feature-box color-1">
+        <h3>🚀 快速开始</h3>
+        <p style="margin: 0; font-size: 16px;">用户可以立即体验核心功能</p>
+      </div>
+      <div class="mockup">
+        [启动动画占位]
+      </div>
+    </div>
+
+    <!-- Screen 2 -->
+    <div class="screen">
+      <div class="screen-label">Screen 2 / 5</div>
+      <h2>功能介绍</h2>
+      <p>通过滑动卡片展示产品的三大核心功能，帮助用户快速了解产品价值。</p>
+      <div class="feature-box color-2">
+        <h3>✨ 智能推荐</h3>
+        <p style="margin: 0; font-size: 16px;">AI驱动的个性化内容</p>
+      </div>
+      <div class="feature-box color-3" style="margin-bottom: 0;">
+        <h3>⚡ 极速体验</h3>
+        <p style="margin: 0; font-size: 16px;">毫秒级响应速度</p>
+      </div>
+    </div>
+
+    <!-- Screen 3 -->
+    <div class="screen">
+      <div class="screen-label">Screen 3 / 5</div>
+      <h2>主界面</h2>
+      <p>用户的日常操作界面。清晰的信息层级，便捷的操作入口。</p>
+      <div class="mockup">
+        [主界面线框图]<br>
+        导航栏 | 内容区 | 侧边栏
+      </div>
+      <div class="feature-box color-4" style="margin-top: 20px; margin-bottom: 0;">
+        <h3>🎨 美观简洁</h3>
+        <p style="margin: 0; font-size: 16px;">现代化的设计语言</p>
+      </div>
+    </div>
+
+    <!-- Screen 4 -->
+    <div class="screen">
+      <div class="screen-label">Screen 4 / 5</div>
+      <h2>详情页面</h2>
+      <p>深入展示内容细节。丰富的交互元素，流畅的滚动体验。</p>
+      <div class="feature-box color-5">
+        <h3>📊 数据可视化</h3>
+        <p style="margin: 0; font-size: 16px;">直观的图表展示</p>
+      </div>
+      <div class="mockup">
+        [详情页布局]<br>
+        标题 | 图片 | 文字内容 | 数据图表
+      </div>
+    </div>
+
+    <!-- Screen 5 -->
+    <div class="screen" style="border-right: none;">
+      <div class="screen-label">Screen 5 / 5</div>
+      <h2>设置中心</h2>
+      <p>完整的个性化设置选项。账户管理、偏好设置、隐私控制等。</p>
+      <div class="feature-box color-1">
+        <h3>🔒 安全保护</h3>
+        <p style="margin: 0; font-size: 16px;">企业级数据加密</p>
+      </div>
+      <div class="feature-box color-2" style="margin-bottom: 0;">
+        <h3>⚙️ 自定义</h3>
+        <p style="margin: 0; font-size: 16px;">个性化你的体验</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline-bar">
+    <span>← 0px</span>
+    <span>1600px</span>
+    <span>3200px</span>
+    <span>4800px</span>
+    <span>6400px</span>
+    <span>8000px →</span>
+  </div>
+</body>
+</html>
