@@ -1,283 +1,283 @@
-# 截图插件测试指南
+# Screenshot Plugin Test Guide
 
-## 📋 测试套件说明
+## 📋 Test Suite Description
 
-这套测试页面专门设计用于全面评估截图插件的性能和功能。与之前的超长测试页面相比，这套测试更加科学和实用。
+This set of test pages is specifically designed to comprehensively evaluate the performance and functionality of the screenshot plugin. Compared to previous ultra-long test pages, this set is more scientific and practical.
 
-## 🎯 为什么之前的测试不合理？
+## 🎯 Why was the previous test unreasonable?
 
-### 问题 1: 尺寸不切实际
+### Problem 1: Unrealistic Dimensions
 ```
-旧测试: 4000×120000px = 480,000,000 像素
-现实: 99%的网页都不会超过 2000×20000px
-```
-
-**问题**：
-- 测试了极端情况，但忽略了常见场景
-- 导致浏览器崩溃，无法真正测试功能
-- 无法反映插件在实际使用中的表现
-
-### 问题 2: 缺乏多样性
-```
-旧测试: 只有一个超大页面
-新测试: 12个不同场景的测试用例
+Old Test: 4000×120000px = 480,000,000 pixels
+Reality: 99% of webpages do not exceed 2000×20000px
 ```
 
-**改进**：
-- 覆盖从简单到复杂的各种情况
-- 测试不同的尺寸比例（横向、纵向、方形）
-- 包含特殊元素测试（固定定位、图片密集等）
+**Issues**:
+- Tested extreme cases but ignored common scenarios
+- Caused browser crashes, unable to truly test functionality
+- Failed to reflect the plugin's performance in real-world use
 
-### 问题 3: 无法量化性能
+### Problem 2: Lack of Diversity
 ```
-旧测试: 只知道"崩溃"或"不崩溃"
-新测试: 可以测量速度、内存占用、成功率
-```
-
-## 📊 新测试套件结构
-
-### 级别 1: 简单 (应100%成功)
-- **Test 1**: 标准网页 (1200×3000px) - 2秒内完成
-- **Test 2**: 宽屏页面 (3000×2000px) - 2秒内完成
-
-**预期表现**：
-- ✅ 截图速度: <2秒
-- ✅ 内存占用: <50MB
-- ✅ 成功率: 100%
-- ✅ 质量: 完美
-
-### 级别 2: 中等 (应95%成功)
-- **Test 3**: 数据仪表板 (1920×4500px)
-- **Test 4**: 长文档 (1000×12000px)
-- **Test 5**: 图片画廊 (1400×8000px)
-- **Test 6**: 宽表格 (5000×3000px)
-
-**预期表现**：
-- ✅ 截图速度: 2-5秒
-- ✅ 内存占用: 50-150MB
-- ✅ 成功率: 95%+
-- ✅ 质量: 良好
-
-### 级别 3: 困难 (应80%成功)
-- **Test 7**: 接近限制 (16000×16000px) ⚠️ **关键测试**
-- **Test 8**: 超宽设计稿 (8000×2000px)
-- **Test 9**: 时间轴 (1200×20000px)
-
-**预期表现**：
-- ⚠️ 截图速度: 5-10秒
-- ⚠️ 内存占用: 150-400MB
-- ⚠️ 成功率: 80%+
-- ⚠️ 可能需要降级/裁剪
-
-### 级别 4: 极限 (测试保护机制)
-- **Test 10**: 极限压力 (4000×40000px)
-- **Test 11**: 固定元素 (1400×10000px)
-- **Test 12**: 响应式布局
-
-**预期表现**：
-- 🛡️ 应触发保护机制
-- 🛡️ 自动降级到安全尺寸
-- 🛡️ 显示清晰的用户提示
-- 🛡️ 不应崩溃
-
-## 🔍 关键测试用例详解
-
-### Test 7: 接近限制 (最重要)
-```
-尺寸: 16000×16000px (Chrome理论最大值)
-像素: 256,000,000 (约1GB内存)
-目的: 测试插件在极限边界的表现
+Old Test: Only one giant page
+New Test: 12 test cases for different scenarios
 ```
 
-**这个测试非常关键，因为：**
-1. 接近但不超过Chrome限制
-2. 测试内存管理能力
-3. 验证降级策略是否合理
+**Improvements**:
+- Covers various situations from simple to complex
+- Tests different aspect ratios (horizontal, vertical, square)
+- Includes special element tests (fixed positioning, image-dense, etc.)
 
-**预期结果**：
-- 选项A: 完整捕获（如果内存充足）
-- 选项B: 按比例缩小到安全尺寸
-- 选项C: 提示用户尺寸过大
-
-### Test 4: 长文档
+### Problem 3: Unable to Quantify Performance
 ```
-尺寸: 1000×12000px
-目的: 模拟真实的长文章/文档场景
+Old Test: Only knew "crash" or "no crash"
+New Test: Can measure speed, memory usage, and success rate
 ```
 
-**这是最常见的实际用例：**
-- 技术文档
-- 学术论文
-- 产品说明
-- 长篇文章
+## 📊 New Test Suite Structure
 
-**预期结果**：
-- 应该完美处理
-- 速度在3-5秒
-- 无任何裁剪
+### Level 1: Easy (Should be 100% successful)
+- **Test 1**: Standard Webpage (1200×3000px) - Complete within 2 seconds
+- **Test 2**: Wide Page (3000×2000px) - Complete within 2 seconds
 
-### Test 11: 固定元素
+**Expected Performance**:
+- ✅ Screenshot speed: < 2 seconds
+- ✅ Memory usage: < 50MB
+- ✅ Success rate: 100%
+- ✅ Quality: Perfect
+
+### Level 2: Medium (Should be 95% successful)
+- **Test 3**: Data Dashboard (1920×4500px)
+- **Test 4**: Long Document (1000×12000px)
+- **Test 5**: Image Gallery (1400×8000px)
+- **Test 6**: Wide Table (5000×3000px)
+
+**Expected Performance**:
+- ✅ Screenshot speed: 2-5 seconds
+- ✅ Memory usage: 50-150MB
+- ✅ Success rate: 95%+
+- ✅ Quality: Good
+
+### Level 3: Hard (Should be 80% successful)
+- **Test 7**: Near Limit (16000×16000px) ⚠️ **Key Test**
+- **Test 8**: Ultra-wide Design (8000×2000px)
+- **Test 9**: Timeline (1200×20000px)
+
+**Expected Performance**:
+- ⚠️ Screenshot speed: 5-10 seconds
+- ⚠️ Memory usage: 150-400MB
+- ⚠️ Success rate: 80%+
+- ⚠️ May require degradation/cropping
+
+### Level 4: Extreme (Testing protection mechanisms)
+- **Test 10**: Extreme Pressure (4000×40000px)
+- **Test 11**: Fixed Elements (1400×10000px)
+- **Test 12**: Responsive Layout
+
+**Expected Performance**:
+- 🛡️ Should trigger protection mechanism
+- 🛡️ Automatic degradation to safe size
+- 🛡️ Show clear user prompts
+- 🛡️ Should not crash
+
+## 🔍 Detailed Key Test Cases
+
+### Test 7: Near Limit (Most Important)
 ```
-尺寸: 1400×10000px
-特殊: 包含多个 position:fixed 元素
-```
-
-**测试特殊场景：**
-- 固定顶部导航
-- 固定侧边栏
-- 固定底部栏
-- 浮动按钮
-
-**常见问题**：
-- 固定元素重复出现
-- 固定元素位置错误
-- 遮挡主要内容
-
-## 📈 性能基准
-
-### 优秀表现
-```
-简单测试 (3000px²):  <2秒,  <50MB
-中等测试 (12000px²): <5秒,  <150MB
-困难测试 (16000px²): <10秒, <400MB
-```
-
-### 可接受表现
-```
-简单测试:  <3秒,  <100MB
-中等测试:  <8秒,  <250MB
-困难测试:  <20秒, <800MB (或降级)
-```
-
-### 需要改进
-```
-简单测试:  >5秒 或失败
-中等测试:  >15秒 或经常失败
-困难测试:  崩溃（应该降级而非崩溃）
-```
-
-## 🧪 如何进行测试
-
-### 1. 基础功能测试
-```
-1. 打开 test-suite-index.html
-2. 依次测试 Test 1-6
-3. 检查每个截图:
-   - 是否包含完整内容？
-   - 是否有滚动条？
-   - 文字是否清晰？
-   - 图片是否完整？
+Size: 16000×16000px (Theoretical Chrome maximum)
+Pixels: 256,000,000 (Approx. 1GB memory)
+Purpose: Test the plugin's performance at extreme boundaries
 ```
 
-### 2. 性能测试
-```
-1. 使用浏览器开发工具
-2. 监控内存占用 (Performance Monitor)
-3. 记录截图耗时
-4. 创建性能表格:
+**This test is critical because**:
+1. It's close to but doesn't exceed Chrome limits
+2. Tests memory management capabilities
+3. Verifies if the degradation strategy is reasonable
 
-| 测试 | 尺寸 | 耗时 | 内存 | 结果 |
-|------|------|------|------|------|
+**Expected Results**:
+- Option A: Full capture (if memory is sufficient)
+- Option B: Proportional scale-down to safe size
+- Option C: Prompt user that the size is too large
+
+### Test 4: Long Document
+```
+Size: 1000×12000px
+Purpose: Simulate real long article/document scenarios
+```
+
+**This is the most common real-world use case**:
+- Technical documents
+- Academic papers
+- Product descriptions
+- Long articles
+
+**Expected Results**:
+- Should handle perfectly
+- Speed between 3-5 seconds
+- No cropping
+
+### Test 11: Fixed Elements
+```
+Size: 1400×10000px
+Special: Contains multiple position:fixed elements
+```
+
+**Testing special scenarios**:
+- Fixed top navigation
+- Fixed sidebar
+- Fixed footer bar
+- Floating button
+
+**Common Issues**:
+- Fixed elements appearing repeatedly
+- Fixed elements in wrong positions
+- Obscuring main content
+
+## 📈 Performance Benchmarks
+
+### Excellent Performance
+```
+Easy Test (3000px²):   < 2s,  < 50MB
+Medium Test (12000px²): < 5s,  < 150MB
+Hard Test (16000px²):   < 10s, < 400MB
+```
+
+### Acceptable Performance
+```
+Easy Test:   < 3s,  < 100MB
+Medium Test: < 8s,  < 250MB
+Hard Test:   < 20s, < 800MB (or degradation)
+```
+
+### Needs Improvement
+```
+Easy Test:   > 5s or failure
+Medium Test: > 15s or frequent failure
+Hard Test:   Crash (should degrade rather than crash)
+```
+
+## 🧪 How to Conduct Tests
+
+### 1. Basic Functionality Test
+```
+1. Open test-suite-index.html
+2. Test Test 1-6 in sequence
+3. Check each screenshot:
+   - Does it contain full content?
+   - Are there scrollbars?
+   - Is the text clear?
+   - Are the images complete?
+```
+
+### 2. Performance Test
+```
+1. Use browser developer tools
+2. Monitor memory usage (Performance Monitor)
+3. Record screenshot duration
+4. Create performance table:
+
+| Test | Size | Duration | Memory | Result |
+|------|------|----------|--------|--------|
 | Test 1 | 1200×3000 | 1.8s | 35MB | ✅ |
 | Test 4 | 1000×12000 | 4.2s | 120MB | ✅ |
 | Test 7 | 16000×16000 | 15s | 650MB | ⚠️ |
 ```
 
-### 3. 边界测试
+### 3. Boundary Test
 ```
-1. 测试 Test 7 (接近限制)
-2. 测试 Test 10 (超出限制)
-3. 验证保护机制:
-   - 是否显示警告？
-   - 是否自动降级？
-   - 是否优雅失败？
-```
-
-### 4. 特殊场景测试
-```
-1. Test 11 (固定元素)
-2. Test 12 (响应式)
-3. 检查特殊元素是否正确处理
+1. Test Test 7 (Near Limit)
+2. Test Test 10 (Exceeding Limit)
+3. Verify protection mechanism:
+   - Is a warning displayed?
+   - Does it automatically degrade?
+   - Does it fail gracefully?
 ```
 
-## 📝 测试报告模板
+### 4. Special Scenario Test
+```
+1. Test 11 (Fixed Elements)
+2. Test 12 (Responsive)
+3. Check if special elements are handled correctly
+```
+
+## 📝 Test Report Template
 
 ```markdown
-## 截图插件测试报告
+## Screenshot Plugin Test Report
 
-**测试日期**: 2024-XX-XX
-**插件版本**: v1.x
-**浏览器**: Chrome XXX
+**Test Date**: 2024-XX-XX
+**Plugin Version**: v1.x
+**Browser**: Chrome XXX
 
-### 测试结果总览
-- 简单测试: X/2 通过
-- 中等测试: X/4 通过
-- 困难测试: X/3 通过
-- 极限测试: X/3 通过
+### Test Results Overview
+- Easy Tests: X/2 Passed
+- Medium Tests: X/4 Passed
+- Hard Tests: X/3 Passed
+- Extreme Tests: X/3 Passed
 
-### 详细结果
+### Detailed Results
 
-#### Test 1: 标准网页 ✅
-- 耗时: 1.8秒
-- 内存: 35MB
-- 质量: 完美
-- 备注: 无问题
+#### Test 1: Standard Webpage ✅
+- Duration: 1.8 seconds
+- Memory: 35MB
+- Quality: Perfect
+- Remarks: No issues
 
-#### Test 7: 接近限制 ⚠️
-- 耗时: 12秒
-- 内存: 580MB
-- 质量: 良好
-- 备注: 自动缩放到 12000×12000
+#### Test 7: Near Limit ⚠️
+- Duration: 12 seconds
+- Memory: 580MB
+- Quality: Good
+- Remarks: Automatically scaled to 12000×12000
 
-#### Test 10: 极限压力 🛡️
-- 耗时: N/A
-- 内存: N/A
-- 质量: N/A
-- 备注: 触发保护，限制为 4000×16384
+#### Test 10: Extreme Pressure 🛡️
+- Duration: N/A
+- Memory: N/A
+- Quality: N/A
+- Remarks: Protection triggered, limited to 4000×16384
 
-### 问题发现
-1. [列出发现的问题]
+### Findings
+1. [List discovered issues]
 2. ...
 
-### 改进建议
-1. [提出改进建议]
+### Suggestions for Improvement
+1. [Proposed improvements]
 2. ...
 ```
 
-## 💡 关键指标
+## 💡 Key Metrics
 
-### 必须达标
-- ✅ Test 1-2 必须 100% 成功
-- ✅ Test 3-6 必须 95% 成功
-- ✅ 不应出现浏览器崩溃
+### Must Reach
+- ✅ Test 1-2 must be 100% successful
+- ✅ Test 3-6 must be 95% successful
+- ✅ No browser crashes should occur
 
-### 优秀指标
-- 🌟 Test 7 完整捕获（不降级）
-- 🌟 所有简单测试 <2秒
-- 🌟 中等测试 <5秒
+### Excellence Indicators
+- 🌟 Test 7 full capture (no degradation)
+- 🌟 All easy tests < 2s
+- 🌟 Medium tests < 5s
 
-### 保护机制
-- 🛡️ Test 10 应触发限制
-- 🛡️ 应显示清晰提示
-- 🛡️ 降级策略合理
+### Protection Mechanism
+- 🛡️ Test 10 should trigger limits
+- 🛡️ Should display clear prompts
+- 🛡️ Reasonable degradation strategy
 
-## 🔧 优化方向
+## 🔧 Optimization Directions
 
-基于测试结果，可能的优化方向：
+Based on test results, possible optimization directions:
 
-1. **如果简单测试慢**: 优化基础代码
-2. **如果中等测试失败**: 改进内存管理
-3. **如果困难测试崩溃**: 添加/改进保护机制
-4. **如果固定元素错误**: 改进DOM处理
+1. **If Easy tests are slow**: Optimize base code
+2. **If Medium tests fail**: Improve memory management
+3. **If Hard tests crash**: Add/improve protection mechanism
+4. **If Fixed elements are wrong**: Improve DOM handling
 
-## 结论
+## Conclusion
 
-这套测试系统比单一超长页面更科学，因为：
+This test system is more scientific than a single ultra-long page because:
 
-✅ 覆盖真实使用场景
-✅ 可量化性能表现
-✅ 测试特殊情况
-✅ 验证保护机制
-✅ 提供改进方向
+✅ Covers real-world use cases
+✅ Quantifiable performance performance
+✅ Tests special cases
+✅ Verifies protection mechanisms
+✅ Provides directions for improvement
 
-建议优先关注 Test 1-6 的完美表现，然后优化 Test 7-9，最后确保 Test 10-12 的保护机制正常工作。
+It is recommended to prioritize achieving perfect performance on Test 1-6, then optimize Test 7-9, and finally ensure the protection mechanisms for Test 10-12 work correctly.

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Test 12: 响应式布局</title>
+  <title>Test 12: Responsive Layout</title>
   <style>
     * {
       margin: 0;
@@ -118,36 +118,36 @@
     }
 
     .breakpoint-indicator::before {
-      content: '当前断点: ';
+      content: 'Current Breakpoint: ';
     }
 
     @media (max-width: 640px) {
       .breakpoint-indicator::after {
-        content: '移动端 (< 640px)';
+        content: 'Mobile (< 640px)';
       }
     }
 
     @media (min-width: 641px) and (max-width: 768px) {
       .breakpoint-indicator::after {
-        content: '小平板 (641-768px)';
+        content: 'Small Tablet (641-768px)';
       }
     }
 
     @media (min-width: 769px) and (max-width: 1024px) {
       .breakpoint-indicator::after {
-        content: '平板 (769-1024px)';
+        content: 'Tablet (769-1024px)';
       }
     }
 
     @media (min-width: 1025px) and (max-width: 1280px) {
       .breakpoint-indicator::after {
-        content: '小桌面 (1025-1280px)';
+        content: 'Small Desktop (1025-1280px)';
       }
     }
 
     @media (min-width: 1281px) {
       .breakpoint-indicator::after {
-        content: '大桌面 (> 1280px)';
+        content: 'Large Desktop (> 1280px)';
       }
     }
 
@@ -234,59 +234,57 @@
   </style>
 </head>
 <body>
-  <div class="test-info">Test 12: 响应式布局</div>
+  <div class="test-info">Test 12: Responsive Layout</div>
   <div class="size-display" id="sizeDisplay"></div>
 
   <div class="header">
-    <h1>📱 响应式布局测试</h1>
-    <p>测试不同窗口尺寸下的截图效果 - 尝试调整浏览器窗口大小后截图</p>
+    <h1>📱 Responsive Layout Test</h1>
+    <p>Test the screenshot effect under different window sizes - try to resize the browser window before taking a screenshot</p>
   </div>
 
   <div class="container">
     <div class="breakpoint-indicator"></div>
 
     <div class="info-box">
-      <h2>💡 测试说明</h2>
+      <h2>💡 Test Description</h2>
       <p>
-        这个页面采用了响应式设计，会根据视口宽度自动调整布局。
-        你可以尝试调整浏览器窗口到不同的宽度（如 375px、768px、1024px、1920px），
-        然后使用截图插件进行截图，检查每种尺寸下的布局是否正确。
+        This page uses a responsive design that automatically adjusts its layout based on the viewport width. You can try resizing the browser window to different widths (e.g., 375px, 768px, 1024px, 1920px), then use the screenshot plugin to take a screenshot and check if the layout is correct for each size.
       </p>
     </div>
 
     <div class="grid">
       <div class="card">
-        <h3>🎯 测试目标</h3>
-        <p>验证插件能否正确捕获响应式布局，而不是固定某个尺寸。</p>
+        <h3>🎯 Test Goal</h3>
+        <p>Verify that the plugin can correctly capture responsive layouts instead of being fixed at a certain size.</p>
       </div>
       <div class="card">
-        <h3>📐 自适应</h3>
-        <p>页面会根据视口宽度自动调整列数、字体大小和间距。</p>
+        <h3>📐 Adaptive</h3>
+        <p>The page will automatically adjust the number of columns, font size, and spacing according to the viewport width.</p>
       </div>
       <div class="card">
-        <h3>🔍 检查点</h3>
-        <p>截图应该反映当前窗口大小下的实际布局状态。</p>
+        <h3>🔍 Checkpoints</h3>
+        <p>The screenshot should reflect the actual layout state under the current window size.</p>
       </div>
     </div>
 
     <div class="info-box">
-      <h2>📊 常见视口尺寸</h2>
+      <h2>📊 Common Viewport Sizes</h2>
       <div class="flex-layout">
         <div class="flex-item">
-          <strong>移动端</strong><br>
+          <strong>Mobile</strong><br>
           375×667 (iPhone SE)<br>
           390×844 (iPhone 14)<br>
           360×640 (Android)
         </div>
         <div class="flex-item">
-          <strong>平板</strong><br>
+          <strong>Tablet</strong><br>
           768×1024 (iPad)<br>
           820×1180 (iPad Air)<br>
           1024×1366 (iPad Pro)
         </div>
         <div class="flex-item">
-          <strong>桌面</strong><br>
-          1366×768 (笔记本)<br>
+          <strong>Desktop</strong><br>
+          1366×768 (Laptop)<br>
           1920×1080 (Full HD)<br>
           2560×1440 (2K)
         </div>
@@ -294,107 +292,106 @@
     </div>
 
     <div class="responsive-table">
-      <h3 style="margin-bottom: 16px; color: #1f2937;">断点说明</h3>
+      <h3 style="margin-bottom: 16px; color: #1f2937;">Breakpoint Description</h3>
       <table>
         <thead>
           <tr>
-            <th>断点名称</th>
-            <th>宽度范围</th>
-            <th>典型设备</th>
-            <th>布局特点</th>
+            <th>Breakpoint Name</th>
+            <th>Width Range</th>
+            <th>Typical Device</th>
+            <th>Layout Features</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>移动端</td>
+            <td>Mobile</td>
             <td>< 640px</td>
-            <td>手机</td>
-            <td>单列布局</td>
+            <td>Phone</td>
+            <td>Single column layout</td>
           </tr>
           <tr>
-            <td>小平板</td>
+            <td>Small Tablet</td>
             <td>641-768px</td>
-            <td>大屏手机/小平板</td>
-            <td>1-2列布局</td>
+            <td>Large phone/Small tablet</td>
+            <td>1-2 column layout</td>
           </tr>
           <tr>
-            <td>平板</td>
+            <td>Tablet</td>
             <td>769-1024px</td>
-            <td>平板</td>
-            <td>2-3列布局</td>
+            <td>Tablet</td>
+            <td>2-3 column layout</td>
           </tr>
           <tr>
-            <td>小桌面</td>
+            <td>Small Desktop</td>
             <td>1025-1280px</td>
-            <td>笔记本</td>
-            <td>3-4列布局</td>
+            <td>Laptop</td>
+            <td>3-4 column layout</td>
           </tr>
           <tr>
-            <td>大桌面</td>
+            <td>Large Desktop</td>
             <td>> 1280px</td>
-            <td>台式机/大屏</td>
-            <td>4+列布局</td>
+            <td>Desktop/Large screen</td>
+            <td>4+ column layout</td>
           </tr>
         </tbody>
       </table>
     </div>
 
     <div class="info-box">
-      <h2>✅ 预期行为</h2>
+      <h2>✅ Expected Behavior</h2>
       <p style="margin-bottom: 12px;">
-        <strong>正确的截图插件应该：</strong>
+        <strong>A correct screenshot plugin should:</strong>
       </p>
       <ul style="list-style: none; padding: 0;">
         <li style="padding: 8px 0; border-bottom: 1px solid #e5e7eb;">
-          ✓ 捕获当前视口宽度下的布局
+          ✓ Capture the layout at the current viewport width
         </li>
         <li style="padding: 8px 0; border-bottom: 1px solid #e5e7eb;">
-          ✓ 保持响应式断点的效果
+          ✓ Maintain the effect of responsive breakpoints
         </li>
         <li style="padding: 8px 0; border-bottom: 1px solid #e5e7eb;">
-          ✓ 正确显示媒体查询的样式
+          ✓ Correctly display media query styles
         </li>
         <li style="padding: 8px 0; border-bottom: 1px solid #e5e7eb;">
-          ✓ 不会强制切换到某个固定宽度
+          ✓ Not force a switch to a fixed width
         </li>
         <li style="padding: 8px 0;">
-          ✓ 截图尺寸匹配实际页面尺寸
+          ✓ Screenshot size matches the actual page size
         </li>
       </ul>
     </div>
 
     <div class="grid">
       <div class="card">
-        <h3>1️⃣ 步骤一</h3>
-        <p>调整浏览器窗口到你想要测试的宽度（如 768px）</p>
+        <h3>1️⃣ Step 1</h3>
+        <p>Adjust the browser window to the width you want to test (e.g., 768px)</p>
       </div>
       <div class="card">
-        <h3>2️⃣ 步骤二</h3>
-        <p>观察页面布局是否按照该宽度正确显示</p>
+        <h3>2️⃣ Step 2</h3>
+        <p>Observe if the page layout is correctly displayed according to that width</p>
       </div>
       <div class="card">
-        <h3>3️⃣ 步骤三</h3>
-        <p>使用截图插件进行截图</p>
+        <h3>3️⃣ Step 3</h3>
+        <p>Take a screenshot using the screenshot plugin</p>
       </div>
       <div class="card">
-        <h3>4️⃣ 步骤四</h3>
-        <p>检查截图是否正确反映了当前的响应式布局</p>
+        <h3>4️⃣ Step 4</h3>
+        <p>Check if the screenshot correctly reflects the current responsive layout</p>
       </div>
     </div>
 
     <div class="info-box" style="background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%); border-left: 4px solid #3b82f6;">
-      <h2 style="color: #1e40af;">💡 提示</h2>
+      <h2 style="color: #1e40af;">💡 Tip</h2>
       <p style="color: #1f2937;">
-        左下角显示当前页面的实际尺寸。
-        截图完成后，对比截图的尺寸和这里显示的尺寸，应该是一致的（或者接近，考虑滚动条等因素）。
+        The actual size of the current page is displayed in the bottom left corner. After the screenshot is completed, compare the size of the screenshot with the size displayed here; they should be consistent (or close, considering scrollbars, etc.).
       </p>
     </div>
   </div>
 
   <div class="footer">
-    <h3 style="margin-bottom: 12px;">测试完成</h3>
+    <h3 style="margin-bottom: 12px;">Test Complete</h3>
     <p style="opacity: 0.8;">
-      响应式布局测试 - 尝试不同窗口尺寸以获得最佳测试效果
+      Responsive Layout Test - Try different window sizes for the best testing results
     </p>
   </div>
 
@@ -403,7 +400,7 @@
       const width = document.documentElement.clientWidth;
       const height = document.documentElement.scrollHeight;
       document.getElementById('sizeDisplay').textContent = 
-        `视口: ${window.innerWidth}×${window.innerHeight} | 页面: ${width}×${height}`;
+        `Viewport: ${window.innerWidth}×${window.innerHeight} | Page: ${width}×${height}`;
     }
     
     updateSize();

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>截图插件测试套件</title>
+  <title>Screenshot Plugin Test Suite</title>
   <style>
     * {
       margin: 0;
@@ -165,125 +165,125 @@
 </head>
 <body>
   <div class="container">
-    <h1>📸 截图插件性能测试套件</h1>
-    <p class="subtitle">点击下方测试用例打开对应的测试页面</p>
+    <h1>📸 Screenshot Plugin Performance Test Suite</h1>
+    <p class="subtitle">Click on a test case below to open the corresponding test page</p>
 
     <div class="test-grid">
-      <!-- 简单测试 -->
+      <!-- Simple Tests -->
       <div class="test-card" onclick="openTest('test-1-simple.html')">
-        <h3>Test 1: 标准网页</h3>
+        <h3>Test 1: Standard Webpage</h3>
         <div class="dimensions">1200×3000px</div>
-        <div class="description">模拟普通文章页面，包含文字、图片、段落。最常见的使用场景。</div>
-        <span class="difficulty easy">简单</span>
+        <div class="description">Simulates a normal article page, containing text, images, and paragraphs. Most common use case.</div>
+        <span class="difficulty easy">Easy</span>
       </div>
 
       <div class="test-card" onclick="openTest('test-2-wide.html')">
-        <h3>Test 2: 宽屏页面</h3>
+        <h3>Test 2: Wide Page</h3>
         <div class="dimensions">3000×2000px</div>
-        <div class="description">横向较宽的页面，测试水平滚动处理能力。</div>
-        <span class="difficulty easy">简单</span>
+        <div class="description">A horizontally wider page, testing horizontal scroll handling capability.</div>
+        <span class="difficulty easy">Easy</span>
       </div>
 
       <div class="test-card" onclick="openTest('test-3-dashboard.html')">
-        <h3>Test 3: 数据仪表板</h3>
+        <h3>Test 3: Data Dashboard</h3>
         <div class="dimensions">1920×4500px</div>
-        <div class="description">包含图表、表格、卡片的复杂布局。</div>
-        <span class="difficulty medium">中等</span>
+        <div class="description">Complex layout containing charts, tables, and cards.</div>
+        <span class="difficulty medium">Medium</span>
       </div>
 
-      <!-- 中等测试 -->
+      <!-- Medium Tests -->
       <div class="test-card" onclick="openTest('test-4-long-form.html')">
-        <h3>Test 4: 长文档</h3>
+        <h3>Test 4: Long Document</h3>
         <div class="dimensions">1000×12000px</div>
-        <div class="description">长篇文章或文档，测试垂直滚动。</div>
-        <span class="difficulty medium">中等</span>
+        <div class="description">Long article or document, testing vertical scroll.</div>
+        <span class="difficulty medium">Medium</span>
       </div>
 
       <div class="test-card" onclick="openTest('test-5-image-gallery.html')">
-        <h3>Test 5: 图片画廊</h3>
+        <h3>Test 5: Image Gallery</h3>
         <div class="dimensions">1400×8000px</div>
-        <div class="description">大量图片的网格布局，测试图片渲染。</div>
-        <span class="difficulty medium">中等</span>
+        <div class="description">Grid layout with many images, testing image rendering.</div>
+        <span class="difficulty medium">Medium</span>
       </div>
 
       <div class="test-card" onclick="openTest('test-6-wide-table.html')">
-        <h3>Test 6: 宽表格</h3>
+        <h3>Test 6: Wide Table</h3>
         <div class="dimensions">5000×3000px</div>
-        <div class="description">超宽数据表格，需要水平滚动查看。</div>
-        <span class="difficulty medium">中等</span>
+        <div class="description">Ultra-wide data table, requires horizontal scrolling to view.</div>
+        <span class="difficulty medium">Medium</span>
       </div>
 
-      <!-- 困难测试 -->
+      <!-- Hard Tests -->
       <div class="test-card" onclick="openTest('test-7-limit.html')">
-        <h3>Test 7: 接近限制</h3>
+        <h3>Test 7: Near Limit</h3>
         <div class="dimensions">16000×16000px</div>
-        <div class="description">接近Chrome最大限制的页面。</div>
-        <span class="difficulty hard">困难</span>
+        <div class="description">Page approaching Chrome's maximum limits.</div>
+        <span class="difficulty hard">Hard</span>
       </div>
 
       <div class="test-card" onclick="openTest('test-8-ultra-wide.html')">
-        <h3>Test 8: 超宽设计稿</h3>
+        <h3>Test 8: Ultra-wide Design</h3>
         <div class="dimensions">8000×2000px</div>
-        <div class="description">设计稿或横幅，极宽但不高。</div>
-        <span class="difficulty hard">困难</span>
+        <div class="description">Design draft or banner, extremely wide but not high.</div>
+        <span class="difficulty hard">Hard</span>
       </div>
 
       <div class="test-card" onclick="openTest('test-9-timeline.html')">
-        <h3>Test 9: 时间轴</h3>
+        <h3>Test 9: Timeline</h3>
         <div class="dimensions">1200×20000px</div>
-        <div class="description">垂直时间轴，超出默认限制。</div>
-        <span class="difficulty hard">困难</span>
+        <div class="description">Vertical timeline, exceeding default limits.</div>
+        <span class="difficulty hard">Hard</span>
       </div>
 
-      <!-- 极限测试 -->
+      <!-- Extreme Tests -->
       <div class="test-card" onclick="openTest('test-10-extreme.html')">
-        <h3>Test 10: 极限压力</h3>
+        <h3>Test 10: Extreme Pressure</h3>
         <div class="dimensions">4000×40000px</div>
-        <div class="description">测试插件的保护机制和降级处理。</div>
-        <span class="difficulty extreme">极限</span>
+        <div class="description">Testing the plugin's protection mechanisms and degradation handling.</div>
+        <span class="difficulty extreme">Extreme</span>
       </div>
 
       <div class="test-card" onclick="openTest('test-11-fixed-elements.html')">
-        <h3>Test 11: 固定元素</h3>
+        <h3>Test 11: Fixed Elements</h3>
         <div class="dimensions">1400×10000px</div>
-        <div class="description">包含fixed/sticky定位元素的长页面。</div>
-        <span class="difficulty medium">中等</span>
+        <div class="description">Long page containing fixed/sticky positioned elements.</div>
+        <span class="difficulty medium">Medium</span>
       </div>
 
       <div class="test-card" onclick="openTest('test-12-responsive.html')">
-        <h3>Test 12: 响应式布局</h3>
-        <div class="dimensions">变化尺寸</div>
-        <div class="description">测试不同窗口大小下的截图效果。</div>
-        <span class="difficulty medium">中等</span>
+        <h3>Test 12: Responsive Layout</h3>
+        <div class="dimensions">Variable Sizes</div>
+        <div class="description">Testing screenshot effects under different window sizes.</div>
+        <span class="difficulty medium">Medium</span>
       </div>
     </div>
 
     <div class="info-section">
-      <h2>测试目标</h2>
+      <h2>Test Goals</h2>
       <ul>
-        <li><strong>基础功能：</strong>正确截取整个页面，包括滚动区域</li>
-        <li><strong>性能表现：</strong>不同尺寸下的处理速度和内存占用</li>
-        <li><strong>边界处理：</strong>超大页面的降级策略和错误提示</li>
-        <li><strong>视觉质量：</strong>图片清晰度、布局完整性、无滚动条</li>
-        <li><strong>特殊元素：</strong>固定定位、粘性定位、iframe等的处理</li>
+        <li><strong>Basic Functionality:</strong> Correctly capture the entire page, including scroll areas</li>
+        <li><strong>Performance:</strong> Processing speed and memory usage under different sizes</li>
+        <li><strong>Boundary Handling:</strong> Degradation strategies and error prompts for oversized pages</li>
+        <li><strong>Visual Quality:</strong> Image clarity, layout integrity, no scrollbars</li>
+        <li><strong>Special Elements:</strong> Handling of fixed positioning, sticky positioning, iframes, etc.</li>
       </ul>
 
       <div class="legend">
         <div class="legend-item">
           <div class="legend-box" style="background: #E8F5E9;"></div>
-          <span>简单 - 应完美处理</span>
+          <span>Easy - Should handle perfectly</span>
         </div>
         <div class="legend-item">
           <div class="legend-box" style="background: #FFF3E0;"></div>
-          <span>中等 - 正常处理</span>
+          <span>Medium - Handle normally</span>
         </div>
         <div class="legend-item">
           <div class="legend-box" style="background: #FFEBEE;"></div>
-          <span>困难 - 可能需要限制</span>
+          <span>Hard - May require limits</span>
         </div>
         <div class="legend-item">
           <div class="legend-box" style="background: #F3E5F5;"></div>
-          <span>极限 - 测试保护机制</span>
+          <span>Extreme - Test protection mechanisms</span>
         </div>
       </div>
     </div>

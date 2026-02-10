@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Test 11: 固定元素 - 1400×10000px</title>
+  <title>Test 11: Fixed Elements - 1400×10000px</title>
   <style>
     * {
       margin: 0;
@@ -16,7 +16,7 @@
       background: #f5f7fa;
     }
 
-    /* 固定顶部导航 */
+    /* Fixed Top Navigation */
     .fixed-header {
       position: fixed;
       top: 0;
@@ -44,7 +44,7 @@
       font-size: 14px;
     }
 
-    /* 粘性侧边栏 */
+    /* Sticky Sidebar */
     .sticky-sidebar {
       position: fixed;
       top: 120px;
@@ -78,7 +78,7 @@
       border-bottom: none;
     }
 
-    /* 主内容区 */
+    /* Main Content Area */
     .content {
       margin-top: 120px;
       margin-left: 40px;
@@ -109,7 +109,7 @@
       margin-bottom: 16px;
     }
 
-    /* 固定底部栏 */
+    /* Fixed Footer Bar */
     .fixed-footer {
       position: fixed;
       bottom: 0;
@@ -173,67 +173,67 @@
 </head>
 <body>
   <div class="fixed-header">
-    <h1>🔒 固定元素测试</h1>
-    <div class="warning">⚠️ 此页面包含Fixed/Sticky元素</div>
+    <h1>🔒 Fixed Elements Test</h1>
+    <div class="warning">⚠️ This page contains Fixed/Sticky elements</div>
   </div>
 
   <div class="test-info">Test 11: 1400×10000px</div>
 
   <div class="sticky-sidebar">
-    <h3>📋 检查清单</h3>
+    <h3>📋 Checklist</h3>
     <ul>
-      <li>✓ 固定顶部导航栏</li>
-      <li>✓ 粘性侧边栏</li>
-      <li>✓ 固定底部栏</li>
-      <li>✓ 浮动按钮</li>
-      <li>✓ 滚动内容完整性</li>
+      <li>✓ Fixed Top Navbar</li>
+      <li>✓ Sticky Sidebar</li>
+      <li>✓ Fixed Footer Bar</li>
+      <li>✓ Floating Button</li>
+      <li>✓ Scrolling Content Integrity</li>
     </ul>
   </div>
 
   <div class="content">
     <div class="section">
-      <h2>Section 1: 测试说明</h2>
+      <h2>Section 1: Test Description</h2>
       <p>
-        这个测试页面包含多种固定定位元素，用于验证截图插件在处理复杂布局时的表现。
-        固定元素（position: fixed）在截图时可能出现以下问题：
+        This test page contains various fixed-position elements to verify the screenshot plugin's performance when handling complex layouts.
+        Fixed elements (position: fixed) may have the following issues when taking screenshots:
       </p>
       <p>
-        1. 重复出现 - 固定元素可能在截图的多个位置重复显示<br>
-        2. 遮挡内容 - 固定元素可能遮挡主要内容<br>
-        3. 位置错误 - 固定元素可能出现在错误的位置
+        1. Repeated appearance - Fixed elements may appear repeatedly at multiple positions in the screenshot<br>
+        2. Obscuring content - Fixed elements may obscure main content<br>
+        3. Wrong position - Fixed elements may appear in the wrong position
       </p>
       <p>
-        优秀的截图工具应该能够正确处理这些元素，确保它们只在应该出现的位置出现一次。
-      </p>
-    </div>
-
-    <div class="section">
-      <h2>Section 2: 固定顶部导航</h2>
-      <p>
-        页面顶部的紫色导航栏使用了 position: fixed，应该只在截图顶部出现一次。
-        如果在截图中看到多个导航栏，说明工具没有正确处理固定定位。
-      </p>
-      <p>
-        导航栏包含标题和警告信息，都应该完整清晰地显示。
+        An excellent screenshot tool should be able to correctly handle these elements, ensuring they only appear once at their intended positions.
       </p>
     </div>
 
     <div class="section">
-      <h2>Section 3: 粘性侧边栏</h2>
+      <h2>Section 2: Fixed Top Navigation</h2>
       <p>
-        右侧的白色侧边栏也使用了 fixed 定位，包含一个检查清单。
-        它应该只在截图中出现一次，并且不应该遮挡主要内容区域。
+        The purple navigation bar at the top uses position: fixed and should only appear once at the top of the screenshot.
+        If you see multiple navigation bars in the screenshot, it means the tool did not handle fixed positioning correctly.
       </p>
       <p>
-        侧边栏的所有列表项都应该清晰可读。
+        The navigation bar contains a title and warning information, both of which should be displayed completely and clearly.
       </p>
     </div>
 
     <div class="section">
-      <h2>Section 4: 长内容区域</h2>
+      <h2>Section 3: Sticky Sidebar</h2>
       <p>
-        为了测试长页面的表现，我们需要添加足够的内容使页面达到约10000像素的高度。
-        这部分内容应该完整地显示在截图中，不被固定元素遮挡。
+        The white sidebar on the right also uses fixed positioning and contains a checklist.
+        It should only appear once in the screenshot and should not obscure the main content area.
+      </p>
+      <p>
+        All list items in the sidebar should be clearly readable.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Section 4: Long Content Area</h2>
+      <p>
+        To test the performance of long pages, we need to add enough content to make the page reach a height of approximately 10,000 pixels.
+        This part of the content should be fully displayed in the screenshot without being obscured by fixed elements.
       </p>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -241,10 +241,9 @@
     </div>
 
     <div class="section">
-      <h2>Section 5: 继续滚动</h2>
+      <h2>Section 5: Continue Scrolling</h2>
       <p>
-        继续向下滚动，测试页面的中间部分。固定元素应该保持在它们的位置，
-        而主要内容应该正常滚动并被完整捕获。
+        Continue scrolling down to test the middle part of the page. Fixed elements should remain in their positions, while the main content should scroll normally and be captured completely.
       </p>
       <p>
         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -252,10 +251,9 @@
     </div>
 
     <div class="section">
-      <h2>Section 6: 更多内容</h2>
+      <h2>Section 6: More Content</h2>
       <p>
-        这个部分继续添加内容。在真实场景中，固定导航栏常用于让用户快速访问主菜单，
-        而不需要滚动回页面顶部。
+        This section continues to add content. In real-world scenarios, fixed navigation bars are often used to give users quick access to the main menu without having to scroll back to the top of the page.
       </p>
       <p>
         Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
@@ -263,10 +261,10 @@
     </div>
 
     <div class="section">
-      <h2>Section 7: 中点检查</h2>
+      <h2>Section 7: Midpoint Check</h2>
       <p>
-        如果你在截图中看到这一部分，说明已经捕获了大约一半的页面内容。
-        检查固定元素是否正常显示，没有重复或错位。
+        If you see this part in the screenshot, it means about half of the page content has been captured.
+        Check if fixed elements are displayed normally, without repetition or displacement.
       </p>
       <p>
         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -274,10 +272,9 @@
     </div>
 
     <div class="section">
-      <h2>Section 8: 持续测试</h2>
+      <h2>Section 8: Continued Testing</h2>
       <p>
-        我们继续添加内容以确保页面足够长。每个部分都应该在截图中完整显示，
-        文字清晰，布局正确。
+        We continue to add content to ensure the page is long enough. Every section should be fully displayed in the screenshot, with clear text and correct layout.
       </p>
       <p>
         Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus.
@@ -285,10 +282,10 @@
     </div>
 
     <div class="section">
-      <h2>Section 9: 接近底部</h2>
+      <h2>Section 9: Approaching Bottom</h2>
       <p>
-        页面即将到达底部。固定底部栏应该只在截图的最底部出现一次。
-        浮动按钮也应该只出现一次，位置正确。
+        The page is about to reach the bottom. The fixed footer bar should only appear once at the very bottom of the screenshot.
+        The floating button should also only appear once, in the correct position.
       </p>
       <p>
         Omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis.
@@ -296,28 +293,27 @@
     </div>
 
     <div class="section">
-      <h2>Section 10: 最后部分</h2>
+      <h2>Section 10: Final Part</h2>
       <p>
-        这是页面的最后一个部分。如果截图中能看到这里，并且固定底部栏在下方正确显示，
-        说明截图工具成功处理了整个页面及其固定元素。
+        This is the last part of the page. If you can see this in the screenshot and the fixed footer bar is correctly displayed below, it means the screenshot tool successfully handled the entire page and its fixed elements.
       </p>
       <p>
-        测试完成！检查所有固定元素是否只出现一次，位置是否正确。
+        Test complete! Check if all fixed elements appear only once and are in the correct positions.
       </p>
     </div>
 
-    <!-- 添加更多内容以达到目标高度 -->
+    <!-- Add more content to reach target height -->
     <script>
       for (let i = 11; i <= 40; i++) {
         const section = document.createElement('div');
         section.className = 'section';
         section.innerHTML = `
-          <h2>Section ${i}: 填充内容</h2>
+          <h2>Section ${i}: Filler Content</h2>
           <p>
-            这是第 ${i} 个部分，用于增加页面高度。每个部分都应该在截图中完整显示。
+            This is the ${i}-th section, used to increase page height. Every section should be fully displayed in the screenshot.
           </p>
           <p>
-            持续测试页面的长度处理能力，确保从顶部到底部的所有内容都被正确捕获。
+            Continually test the page length handling capability to ensure all content from top to bottom is correctly captured.
           </p>
         `;
         document.querySelector('.content').appendChild(section);
@@ -328,10 +324,10 @@
   <div class="floating-button">↑</div>
 
   <div class="fixed-footer">
-    🎯 固定底部栏 - 应该只在截图底部出现一次
+    🎯 Fixed Footer Bar - Should only appear once at the bottom of the screenshot
   </div>
 
-  <!-- 滚动指示器 -->
+  <!-- Scroll Indicator -->
   <div class="scroll-indicator" style="top: 70px; bottom: 60px;">
     <div class="scroll-thumb" style="height: 50px; top: 0;"></div>
   </div>

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Test 10: 极限压力 - 4000×40000px</title>
+  <title>Test 10: Extreme Pressure - 4000×40000px</title>
   <style>
     body {
       margin: 0;
@@ -100,28 +100,28 @@
   </style>
 </head>
 <body>
-  <div class="test-info">⚠️ Test 10: 4000×40000px (极限测试)</div>
+  <div class="test-info">⚠️ Test 10: 4000×40000px (Extreme Test)</div>
 
   <div class="warning-header">
-    <h1>🚨 极限压力测试</h1>
-    <p>此页面设计用于测试插件的保护机制</p>
+    <h1>🚨 Extreme Pressure Test</h1>
+    <p>This page is designed to test the plugin's protection mechanism</p>
   </div>
 
   <div class="alert-box">
-    <h2>⚠️ 测试说明</h2>
+    <h2>⚠️ Test Description</h2>
     <p>
-      这是一个 <strong>4000×40000 像素</strong>的超大页面，总像素数为 <strong>160,000,000 (160MP)</strong>，
-      相当于约 <strong>640MB</strong> 的未压缩图像数据。
+      This is an oversized page of <strong>4000×40000 pixels</strong>, with a total pixel count of <strong>160,000,000 (160MP)</strong>,
+      equivalent to approximately <strong>640MB</strong> of uncompressed image data.
     </p>
     <p>
-      <strong>这个测试的目的不是成功截取完整页面</strong>，而是验证插件在面对极端情况时的表现：
+      <strong>The purpose of this test is not to successfully capture the full page</strong>, but to verify the plugin's behavior when faced with extreme situations:
     </p>
     <ul>
-      <li>✅ 是否触发了保护机制（尺寸限制）</li>
-      <li>✅ 是否向用户显示了清晰的警告信息</li>
-      <li>✅ 是否采用了降级策略（裁剪或缩放）</li>
-      <li>✅ 浏览器是否保持稳定（不崩溃）</li>
-      <li>✅ 用户体验是否友好（有反馈、不卡死）</li>
+      <li>✅ Whether the protection mechanism (size limit) is triggered</li>
+      <li>✅ Whether clear warning information is displayed to the user</li>
+      <li>✅ Whether a degradation strategy (cropping or scaling) is adopted</li>
+      <li>✅ Whether the browser stays stable (no crash)</li>
+      <li>✅ Whether the user experience is friendly (with feedback, no freezing)</li>
     </ul>
   </div>
 
@@ -131,24 +131,24 @@
   </div>
   <div class="marker marker-right" style="top: 2000px;">
     3920px →<br>
-    <span style="font-size: 18px; font-weight: normal;">宽度右侧</span>
+    <span style="font-size: 18px; font-weight: normal;">Right Side</span>
   </div>
 
   <div class="alert-box">
-    <h2>📊 预期结果</h2>
+    <h2>📊 Expected Results</h2>
     <p>
-      使用不同配置的插件，预期会得到不同的结果：
+      Using different plugin configurations, different results are expected:
     </p>
     <ul>
-      <li><strong>保守配置 (50MP):</strong> 缩放到约 1581×15810px (25%)</li>
-      <li><strong>平衡配置 (100MP):</strong> 缩放到约 2236×22360px (35%)</li>
-      <li><strong>激进配置 (300MP):</strong> 缩放到约 3873×38730px (61%)</li>
-      <li><strong>无限制配置:</strong> 可能崩溃或非常缓慢</li>
+      <li><strong>Conservative Configuration (50MP):</strong> Scaled to approx 1581×15810px (25%)</li>
+      <li><strong>Balanced Configuration (100MP):</strong> Scaled to approx 2236×22360px (35%)</li>
+      <li><strong>Aggressive Configuration (300MP):</strong> Scaled to approx 3873×38730px (61%)</li>
+      <li><strong>No-limit Configuration:</strong> May crash or be very slow</li>
     </ul>
     <p style="margin-top: 24px; padding: 20px; background: #fef3c7; border-left: 4px solid #f59e0b; border-radius: 8px;">
-      <strong>💡 提示：</strong>
-      如果插件正确实现了保护机制，你应该会看到一个通知，告诉你页面被限制或缩放了。
-      这是<strong>预期行为</strong>，不是bug！
+      <strong>💡 Tip:</strong>
+      If the plugin correctly implements the protection mechanism, you should see a notification telling you the page was limited or scaled.
+      This is <strong>expected behavior</strong>, not a bug!
     </p>
   </div>
 
@@ -158,14 +158,14 @@
   </div>
 
   <div class="alert-box">
-    <h2>🔬 技术细节</h2>
-    <p>为什么这个页面如此极端：</p>
+    <h2>🔬 Technical Details</h2>
+    <p>Why this page is so extreme:</p>
     <ul>
-      <li><strong>像素数：</strong>160MP 是普通照片的 40 倍</li>
-      <li><strong>内存：</strong>RGBA 格式下需要约 640MB 内存</li>
-      <li><strong>渲染：</strong>浏览器需要渲染所有这些像素</li>
-      <li><strong>编码：</strong>PNG 压缩也需要大量时间</li>
-      <li><strong>传输：</strong>下载可能需要数十秒</li>
+      <li><strong>Pixel Count:</strong> 160MP is 40 times that of an ordinary photo</li>
+      <li><strong>Memory:</strong> Approx 640MB memory needed in RGBA format</li>
+      <li><strong>Rendering:</strong> The browser needs to render all these pixels</li>
+      <li><strong>Encoding:</strong> PNG compression also takes a lot of time</li>
+      <li><strong>Transmission:</strong> Downloading may take dozens of seconds</li>
     </ul>
   </div>
 
@@ -175,17 +175,17 @@
   </div>
 
   <div class="alert-box">
-    <h2>✅ 成功标准</h2>
-    <p>这个测试被认为<strong>成功</strong>，如果：</p>
+    <h2>✅ Success Criteria</h2>
+    <p>This test is considered <strong>successful</strong> if:</p>
     <ul>
-      <li>✓ 浏览器没有崩溃或无响应</li>
-      <li>✓ 插件显示了警告或提示信息</li>
-      <li>✓ 最终生成了一个可用的截图（即使是缩放或裁剪的）</li>
-      <li>✓ 整个过程在合理时间内完成（<30秒）</li>
-      <li>✓ 用户明白发生了什么（有清晰反馈）</li>
+      <li>✓ Browser did not crash or become unresponsive</li>
+      <li>✓ Plugin displayed warning or prompt information</li>
+      <li>✓ A usable screenshot was finally generated (even if scaled or cropped)</li>
+      <li>✓ The whole process completed within a reasonable time (<30 seconds)</li>
+      <li>✓ User understands what happened (clear feedback)</li>
     </ul>
     <p style="margin-top: 24px; font-size: 20px; font-weight: 600; color: #059669;">
-      记住：完整截取这个页面<strong>不是目标</strong>。优雅的降级和清晰的沟通才是成功！
+      Remember: capturing this page completely <strong>is not the goal</strong>. Elegant degradation and clear communication is success!
     </p>
   </div>
 
@@ -195,18 +195,18 @@
   </div>
 
   <div class="alert-box">
-    <h2>💭 设计哲学</h2>
+    <h2>💭 Design Philosophy</h2>
     <p>
-      优秀的工具不是"能做任何事"，而是"知道什么时候说不"。
+      Good tools are not about "being able to do everything", but about "knowing when to say no".
     </p>
     <p>
-      这个测试验证的是插件的<strong>智能边界处理</strong>能力：
+      This test verifies the plugin's <strong>intelligent boundary handling</strong> capability:
     </p>
     <ul>
-      <li>识别危险情况</li>
-      <li>采取保护措施</li>
-      <li>向用户解释清楚</li>
-      <li>提供合理的替代方案</li>
+      <li>Identify dangerous situations</li>
+      <li>Take protective measures</li>
+      <li>Explain clearly to users</li>
+      <li>Provide reasonable alternatives</li>
     </ul>
   </div>
 
@@ -216,12 +216,12 @@
   </div>
 
   <div class="alert-box" style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-color: #f59e0b;">
-    <h2 style="color: #92400e;">🎯 中点检查</h2>
+    <h2 style="color: #92400e;">🎯 Midpoint Check</h2>
     <p style="color: #1f2937;">
-      如果你在截图中看到这个区域，说明插件至少捕获了一半的页面高度。
+      If you see this area in the screenshot, it means the plugin captured at least half of the page height.
     </p>
     <p style="color: #1f2937;">
-      不过，考虑到页面总高度是 40000px，完整捕获的可能性非常小。
+      However, considering the total height is 40000px, full capture is very unlikely.
     </p>
   </div>
 
@@ -231,14 +231,14 @@
   </div>
 
   <div class="alert-box">
-    <h2>🚀 性能考量</h2>
-    <p>即使硬件允许，截取如此大的页面也需要考虑：</p>
+    <h2>🚀 Performance Considerations</h2>
+    <p>Even if hardware allows, capturing such a large page requires considering:</p>
     <ul>
-      <li><strong>用户时间：</strong>可能需要 20-60 秒</li>
-      <li><strong>CPU 占用：</strong>100% 占用数十秒</li>
-      <li><strong>内存峰值：</strong>可能超过 2GB</li>
-      <li><strong>文件大小：</strong>PNG 可能 50-200MB</li>
-      <li><strong>实用性：</strong>真的需要这么大的图吗？</li>
+      <li><strong>User Time:</strong> May take 20-60 seconds</li>
+      <li><strong>CPU Usage:</strong> 100% usage for dozens of seconds</li>
+      <li><strong>Memory Peak:</strong> May exceed 2GB</li>
+      <li><strong>File Size:</strong> PNG may be 50-200MB</li>
+      <li><strong>Utility:</strong> Do you really need such a large image?</li>
     </ul>
   </div>
 
@@ -248,17 +248,17 @@
   </div>
 
   <div class="alert-box">
-    <h2>🤔 现实场景</h2>
+    <h2>🤔 Reality Scenarios</h2>
     <p>
-      在真实世界中，几乎<strong>不会有</strong>像这样的页面：
+      In the real world, there are <strong>almost no</strong> pages like this:
     </p>
     <ul>
-      <li>40000px 高度相当于普通屏幕的 25 倍</li>
-      <li>4000px 宽度需要左右滚动</li>
-      <li>这样的设计违背了网页设计的基本原则</li>
+      <li>40000px height is equivalent to 25 times an ordinary screen</li>
+      <li>4000px width requires horizontal scrolling</li>
+      <li>Such a design violates the basic principles of web design</li>
     </ul>
     <p style="margin-top: 20px; color: #059669; font-weight: 600;">
-      所以，如果插件限制了这个页面，那是<strong>正确的决定</strong>！
+      So, if the plugin limits this page, it's the <strong>right decision</strong>!
     </p>
   </div>
 
@@ -268,30 +268,30 @@
   </div>
 
   <div class="alert-box">
-    <h2>📚 经验教训</h2>
-    <p>从这个测试中我们学到：</p>
+    <h2>📚 Lessons Learned</h2>
+    <p>From this test, we learned:</p>
     <ul>
-      <li>限制不是缺陷，而是智慧</li>
-      <li>保护用户比满足所有请求更重要</li>
-      <li>清晰的沟通能化解用户的失望</li>
-      <li>边界情况的处理定义产品质量</li>
+      <li>Limitation is not a flaw, but wisdom</li>
+      <li>Protecting users is more important than satisfying all requests</li>
+      <li>Clear communication can resolve user disappointment</li>
+      <li>Boundary handling defines product quality</li>
     </ul>
   </div>
 
   <div class="alert-box" style="background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%); border-color: #fef2f2;">
-    <h2 style="color: white;">🏁 底部标记</h2>
+    <h2 style="color: white;">🏁 Bottom Marker</h2>
     <p style="color: rgba(255,255,255,0.95); font-size: 24px; font-weight: 600;">
-      如果你在截图中看到这里...
+      If you see this here in the screenshot...
     </p>
     <p style="color: rgba(255,255,255,0.9); font-size: 18px; margin-top: 16px;">
-      恭喜！你的插件（或电脑）比我们想象的更强大。
-      或者，更可能的是，它聪明地限制了尺寸 😊
+      Congratulations! Your plugin (or computer) is more powerful than we imagined.
+      Or, more likely, it intelligently limited the size 😊
     </p>
     <p style="color: rgba(255,255,255,0.85); font-size: 16px; margin-top: 24px; padding: 20px; background: rgba(0,0,0,0.3); border-radius: 8px;">
-      <strong>测试完成！</strong><br>
-      检查你的浏览器和插件是否还在正常工作。
-      检查是否收到了关于页面被限制的通知。
-      这才是这个测试的真正目的。
+      <strong>Test Complete!</strong><br>
+      Check if your browser and plugin are still working properly.
+      Check if you received a notification about the page being limited.
+      This is the true purpose of this test.
     </p>
   </div>
 
