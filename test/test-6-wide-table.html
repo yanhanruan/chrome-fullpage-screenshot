@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Test 6: Wide Table - 5000×3000px</title>
+  <title>Test 6: Wide Table - 5000px Width</title>
   <style>
     * {
       margin: 0;
@@ -12,7 +12,8 @@
 
     body {
       width: 5000px;
-      height: 3000px;
+      /* 修改点：删除了固定的 height: 3000px */
+      min-height: 100vh; /* 保证背景色至少填满一屏，但允许根据内容自动调整高度 */
       font-family: 'Courier New', monospace;
       background: #f8f9fa;
       padding: 40px;
@@ -35,6 +36,9 @@
       padding: 40px;
       border-radius: 12px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      /* 确保容器撑开 body */
+      display: inline-block; 
+      min-width: 100%;
     }
 
     h1 {
@@ -108,11 +112,11 @@
   </style>
 </head>
 <body>
-  <div class="test-info">Test 6: 5000×3000px (Ultra-wide Table)</div>
+  <div class="test-info">Test 6: 5000px Width (Auto Height)</div>
 
   <div class="container">
     <h1>📊 Data Report - Ultra-wide Table Test</h1>
-    <p class="subtitle">Testing large data tables with horizontal scrolling</p>
+    <p class="subtitle">Testing large data tables with horizontal scrolling (Auto Height)</p>
 
     <table>
       <thead>
