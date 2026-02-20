@@ -30,7 +30,13 @@ chrome.action.onClicked.addListener((tab) => {
         
         const html = document.documentElement;
         return {
-          width: html.clientWidth,
+          width: Math.max(
+            document.body.scrollWidth,
+            document.body.offsetWidth,
+            html.clientWidth,
+            html.scrollWidth,
+            html.offsetWidth
+          ),
           height: Math.max(
             document.body.scrollHeight,
             document.body.offsetHeight,
